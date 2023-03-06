@@ -15,6 +15,9 @@ import { OrderConfirmationComponent } from './Pages/order-confirmation/order-con
 import { FeedbackComponent } from './Pages/feedback/feedback.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { HomeComponent } from './Pages/home/home.component';
+import { EditFoodItemComponent } from './Pages/edit-food-item/edit-food-item.component';
+import { CreateFoodItemComponent } from './Pages/create-food-item/create-food-item.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { HomeComponent } from './Pages/home/home.component';
     OrderConfirmationComponent,
     FeedbackComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    EditFoodItemComponent,
+    CreateFoodItemComponent
   ],
   imports: [
     BrowserModule,

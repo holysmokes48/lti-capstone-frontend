@@ -16,6 +16,16 @@ const routes: Routes = [
       import('./Pages/admin-dashboard/admin.module').then(m => m.AdminModule)
   },
   {
+    path: 'create-food-item',
+    loadChildren: () =>
+      import('./Pages/create-food-item/create-food-item.module').then(m => m.CreateFoodItemModule)
+  },
+  {
+    path: 'edit-food-item',
+    loadChildren: () =>
+      import('./Pages/edit-food-item/edit-food-item.module').then(m => m.EditFoodItemModule)
+  },
+  {
     path: 'feedback',
     loadChildren: () =>
       import('./Pages/feedback/feedback.module').then(m => m.FeedbackModule)
