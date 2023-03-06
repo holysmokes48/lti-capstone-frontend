@@ -14,6 +14,7 @@ import { FoodMenuComponent } from './Pages/food-menu/food-menu.component';
 import { OrderConfirmationComponent } from './Pages/order-confirmation/order-confirmation.component';
 import { FeedbackComponent } from './Pages/feedback/feedback.component';
 import { HeaderComponent } from './Components/header/header.component';
+import { HomeComponent } from './Pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HeaderComponent } from './Components/header/header.component';
     FoodMenuComponent,
     OrderConfirmationComponent,
     FeedbackComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
