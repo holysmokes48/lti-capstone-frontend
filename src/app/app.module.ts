@@ -13,6 +13,7 @@ import { ForgotPasswordComponent } from './Pages/forgot-password/forgot-password
 import { FoodMenuComponent } from './Pages/food-menu/food-menu.component';
 import { OrderConfirmationComponent } from './Pages/order-confirmation/order-confirmation.component';
 import { FeedbackComponent } from './Pages/feedback/feedback.component';
+import { HeaderComponent } from './Components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FeedbackComponent } from './Pages/feedback/feedback.component';
     ForgotPasswordComponent,
     FoodMenuComponent,
     OrderConfirmationComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
