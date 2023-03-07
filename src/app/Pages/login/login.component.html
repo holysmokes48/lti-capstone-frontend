@@ -1,29 +1,58 @@
 <div class="container" id="container1">
-  <div class="col-md-6 col-md-offset-3" id="colorDiv">
-      <div class="col-md-6 col-md-offset-3" id="innerDiv">
-          <div class="page-header">
-              <h3>Login</h3>
-          </div>
-          <form>
-              <div class="form-group">
-                  <label for="userInput">Username</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-              </div>
-              <div class="form-group">
-                  <label for="passwordConfirm">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                  
-              </div>
-          </form>
-          <button type="submit">Login</button>
-          <p>Not registered yet? Click here to register</p>
-          <br>
-          <button type="submit">Register</button>
-          <button type="submit">Forgot Password</button>
-          <br />
-          <div class="footer">
-              
-          </div>            
-      </div>
-  </div>    
+  <div class="p-5 text-center bg-light fa-4x">
+    <i class="fas fa-user-circle"></i>
+    <h1 class="mb-3">Login</h1>
+  </div>
+  <form>
+    <br><br>
+    <div class="form-group">
+      <label for="userInput">Username</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        placeholder="Enter username"
+      />
+
+      <label for="passwordConfirm">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        placeholder="Password"
+      />
+
+      <label>User Type</label>
+      <select name="userType" id="dropdown">
+        <option value="0">Admin</option>
+        <option value="1">User</option>
+        <option value="2">Vendor</option>
+      </select>
+    </div>
+  </form>
+
+  <br /><br />
+  <a
+    href="#"
+    class="btn btn-primary btn-lg active"
+    role="button"
+    aria-pressed="true"
+    >Login</a
+  >
+  <a
+    href="#"
+    class="btn btn-warning btn-lg active"
+    role="button"
+    aria-pressed="true"
+    >Register</a
+  >
+  <a
+    href="#"
+    class="btn btn-secondary btn-lg active"
+    role="button"
+    aria-pressed="true"
+    >Forgot Password</a
+  >
+  <br /><br />
 </div>

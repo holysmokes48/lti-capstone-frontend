@@ -1,0 +1,22 @@
+.container {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding: 3%;
+}
+
+.carousel {
+    width: 100%;
+    height: auto;
+    padding: 5%;
+}
+
+button {
+    margin: 5px;
+}
+
+.page-header {
+    padding: 5%;
+}
+
+
