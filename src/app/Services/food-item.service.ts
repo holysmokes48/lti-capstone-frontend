@@ -12,14 +12,14 @@ export class FoodItemService {
 
   }
   getAllloadFoodItem(){
-    return this.http.get(`/getAllfoodItems/`)
+    return this.http.get(`/getAllFoodItems`)
     
   }
 
   createFoodItem(data:any) {
     
     this.foodItemData.push(data)
-    this.http.post('/createFoodItem/',data)
+    this.http.post('/createFoodItem',data)
     .subscribe((data) =>{
       console.log(data);
 
@@ -27,7 +27,7 @@ export class FoodItemService {
     
   }
   getFoodItemById(id: number) {
-    return this.http.get(`/getFoodItemById`)
+    return this.http.get(`/getFoodItemById/${id}}`)
   }
   updateFoodItem(data: any) {
     this.foodItemData.push(data)
@@ -39,8 +39,8 @@ export class FoodItemService {
   deleteFoodItemById(id: number) {
     return this.http.delete(`/deleteFoodItemById/${id}`)
   }
-  
-  findfoodbyid(id: number) {
+  //returns by a list
+  getFoodByVendorId(id: number) {
     return this.http.get(`/findfood/${id}`)
   }
 
