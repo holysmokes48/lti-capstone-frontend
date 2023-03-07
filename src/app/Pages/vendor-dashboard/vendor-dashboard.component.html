@@ -1,1 +1,43 @@
-<p>vendor-dashboard works!</p>
+<header>
+    <div class="p-5 text-center bg-light">
+      <h1 class="mb-3">Vendor Dashboard </h1>
+    </div>
+  </header>
+
+  <br>
+<ng-container>
+    <div class="container">
+      <div class="food-table">
+        <div class="food-items">
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th>Food Item</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>pizza</td>
+                  <td>$10</td>
+                  <td>pizza with chez</td>
+                  <td>
+                    <button type="button" class="btn btn-primary">Edit</button>
+                </td>
+                  <td>
+                    <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    </ng-container>
+        <div class="text-center">
+            
+              <button class="btn btn-success">Create Food Item</button>
+          </div>
