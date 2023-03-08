@@ -12,6 +12,7 @@ export class AdminDashboardComponent implements OnInit {
 
   feedbackData: any[];
   vendorData: any[];
+  vendorId: number;
 
   constructor(private fs: FeedbackService, private vs: VendorService) { }
 
@@ -39,6 +40,11 @@ export class AdminDashboardComponent implements OnInit {
       }
       this.feedbackData = locArray;
     })
+  }
+  
+  
+  onDelete() {
+    this.vs.deleteVendorbyId(this.vendorId);
   }
 
 
