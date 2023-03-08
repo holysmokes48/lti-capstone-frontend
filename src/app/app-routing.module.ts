@@ -105,6 +105,13 @@ const routes: Routes = [
         (m) => m.EditOffersModule
       ),
   },
+  {
+    path: 'offer',
+    loadChildren: () =>
+      import('./Pages/shopping-cart/offer/offer.module').then(
+        (m) => m.OfferModule
+      ),
+  },
 
 ];
 

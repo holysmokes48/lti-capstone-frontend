@@ -22,6 +22,7 @@ import { OffersComponent } from './Pages/offers/offers.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { VendorRegisterComponent } from './pages/vendor-register/vendor-register.component';
+import { OfferComponent } from './Pages/shopping-cart/offer/offer.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { VendorRegisterComponent } from './pages/vendor-register/vendor-register
     CreateFoodItemComponent,
     FooterComponent,
     OffersComponent,
-    VendorRegisterComponent
+    VendorRegisterComponent,
+    OfferComponent
   ],
   imports: [
     BrowserModule,
