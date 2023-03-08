@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminDashboardComponent } from './Pages/admin-dashboard/admin-dashboard.component';
@@ -20,6 +20,8 @@ import { EditFoodItemComponent } from './Pages/edit-food-item/edit-food-item.com
 import { CreateFoodItemComponent } from './Pages/create-food-item/create-food-item.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { OffersComponent } from './Pages/offers/offers.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { OffersComponent } from './Pages/offers/offers.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
