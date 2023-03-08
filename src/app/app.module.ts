@@ -21,6 +21,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { OffersComponent } from './Pages/offers/offers.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { VendorRegisterComponent } from './pages/vendor-register/vendor-register.component';
 import { OfferComponent } from './Pages/shopping-cart/offer/offer.component';
 
 
@@ -43,6 +44,7 @@ import { OfferComponent } from './Pages/shopping-cart/offer/offer.component';
     CreateFoodItemComponent,
     FooterComponent,
     OffersComponent,
+    VendorRegisterComponent,
     OfferComponent
   ],
   imports: [
