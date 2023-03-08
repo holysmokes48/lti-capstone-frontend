@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/Services/user.service';
+import { VendorService } from 'src/app/Services/vendor.service';
 import { User } from './user.model';
 
 @Component({
@@ -12,7 +13,7 @@ import { User } from './user.model';
 export class LoginComponent {
   userData: any;
 
-  constructor(private us: UserService, private _router: Router) {
+  constructor(private us: UserService, private vs: VendorService, private _router: Router) {
 
   }
   
@@ -49,7 +50,6 @@ export class LoginComponent {
         this._router.navigate(['/admin-dashboard']);
       }
       else {
-
       }
     });
   }

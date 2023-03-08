@@ -80,7 +80,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'vendor-dashboard',
+    path: 'vendor-dashboard/:id',
     loadChildren: () =>
       import('./Pages/vendor-dashboard/vendor-dashboard.module').then(
         (m) => m.VendorDashboardModule
