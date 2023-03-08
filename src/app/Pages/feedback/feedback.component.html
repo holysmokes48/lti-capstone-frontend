@@ -8,17 +8,20 @@
     </header>
   </div>
   <div class="feedback">
-    <form>
+    <form (ngSubmit) = "createFeedback()" [formGroup] = "feedbackform">
+      <div class = "form-group">
       <br /><br />
       <h6>Rating (1-5):</h6>
-      <input type="number" style="height: 50px" /><br /><br /><br />
+      <input type="number" class="form-control" formControlName = 'rating' style="height: 50px" />
+      <br /><br /><br />
       <h6>Feedback Description:</h6>
-      <input type="text" name="description" style="height: 100px" /><br /><br />
+      <input type="text" class="form-control" formControlName = "description" style="height: 100px" /><br /><br />
 
       <!-- Submit button -->
       <button type="submit" class="btn btn-success btn-block mb-4">
         <h4>Submit Feedback</h4>
       </button>
+    </div>
     </form>
   </div>
 </div>
