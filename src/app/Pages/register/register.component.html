@@ -4,25 +4,27 @@
     <h1 class="mb-1">Register</h1>
   </div>
   <br>
-  <br>
   <form (ngSubmit)="register()" [formGroup]="registerform">
     <div class="form-group">
       <label for="userName">Username</label>
       <input
         type="text"
         class="form-control"
-        id="exampleInputEmail1"
-        aria-describedby="emailHelp"
-        placeholder="Enter username"
+        placeholder="Enter Username"
         formControlName="userName"
       />
       <label for="email">Email</label>
       <input
         type="email"
         class="form-control"
-        placeholder="Enter email"
+        placeholder="Enter Email"
         formControlName="email"
       />
+      <div *ngIf="registerform.controls['email'].invalid">
+        <p align="right">
+          Please enter a valid email
+        </p>
+      </div>
       <label for="password">Password</label>
       <input
         type="password"
@@ -32,10 +34,10 @@
       />
       <div *ngIf="registerform.controls['password'].invalid">
         <p align="right">
-          password must be length of 6 or more
+          Password must be length of 6 or more
         </p>
       </div>
-      <label for="securityQuestion">Security Question?</label>
+      <label for="securityQuestion">Security Question</label>
       <select class="form-control" formControlName="securityQuestion">
         <option>Where was your mother born?</option>
         <option>What was your first car?</option>
@@ -44,7 +46,7 @@
         <option>Where were you born?</option>
         <option>What model your first smartphone was?</option>
       </select>
-      <label for="answer">Type your security question answer here</label>
+      <label for="answer">Answer</label>
       <input
         type="text"
         class="form-control"
@@ -55,6 +57,7 @@
       <select class="form-control" name="userType" formControlName="type">
         <option>User</option>
         <option>Admin</option>
+        <option>Vendor</option>
       </select>
     </div>
     <br>

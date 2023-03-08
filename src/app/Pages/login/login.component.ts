@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/Services/user.service';
 import { VendorService } from 'src/app/Services/vendor.service';
-import { User } from './user.model';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +11,7 @@ import { User } from './user.model';
 })
 export class LoginComponent {
   userData: any;
+  vendor: any;
 
   constructor(private us: UserService, private vs: VendorService, private _router: Router) {
 
@@ -40,9 +40,7 @@ export class LoginComponent {
 
   login() {
     this.us.login(this.loginform.value).subscribe((response) => {
-     // JSON.parse(JSON.stringify(response));
       this.userData = JSON.parse(JSON.stringify(response));
-      console.log(this.userData['type']);
       if(this.userData['type'].match(/^User$/)) {
         this._router.navigate(['/user-dashboard']);
       }
@@ -50,6 +48,10 @@ export class LoginComponent {
         this._router.navigate(['/admin-dashboard']);
       }
       else {
+        this.vs.getVendorByUserId(this.userData['userId']).subscribe((response) => {
+          this.vendor = JSON.parse(JSON.stringify(response));
+          this._router.navigate(['/vendor-dashboard', this.vendor['vendorId']]);
+        });
       }
     });
   }

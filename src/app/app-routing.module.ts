@@ -66,6 +66,11 @@ const routes: Routes = [
       import('./Pages/register/register.module').then((m) => m.RegisterModule),
   },
   {
+    path: 'vendor-register/:id',
+    loadChildren: () =>
+      import('./Pages/vendor-register/vendor-register.module').then((m) => m.VendorRegisterModule),
+  },
+  {
     path: 'shopping-cart',
     loadChildren: () =>
       import('./Pages/shopping-cart/shopping-cart.module').then(
@@ -86,6 +91,21 @@ const routes: Routes = [
         (m) => m.VendorDashboardModule
       ),
   },
+  {
+    path: 'create-offers',
+    loadChildren: () =>
+      import('./Pages/vendor-dashboard/create-offers/create-offers.module').then(
+        (m) => m.CreateOffersModule
+      ),
+  },
+  {
+    path: 'edit-offers',
+    loadChildren: () =>
+      import('./Pages/vendor-dashboard/edit-offers/edit-offers.module').then(
+        (m) => m.EditOffersModule
+      ),
+  },
+
 ];
 
 @NgModule({

@@ -13,6 +13,7 @@ export class RegisterComponent {
 
   }
 
+  user: any;
   registerform: FormGroup;
   email: FormControl;
   userName: FormControl;
@@ -39,7 +40,7 @@ export class RegisterComponent {
 
   createFormControls() {
     this.userName = new FormControl('', Validators.required);
-    this.email = new FormControl('', Validators.required);
+    this.email = new FormControl('', [Validators.required, Validators.email]);
     this.password = new FormControl('', [Validators.required, Validators.minLength(6)]);
     this.securityQuestion = new FormControl('', Validators.required);
     this.answer = new FormControl('', Validators.required);
@@ -47,8 +48,14 @@ export class RegisterComponent {
   }
 
   register() {
-    console.log(this.registerform.value);
-    this.us.register(this.registerform.value);
-    this._router.navigate(['/login']);
+    this.us.register(this.registerform.value).subscribe((response) => {
+      this.user = JSON.parse(JSON.stringify(response));
+      if(this.user['type'].match(/^Vendor/)) {
+        this._router.navigate(['/vendor-register', this.user.userId]);
+      }
+      else {
+        this._router.navigate(['/login']);
+      }
+    })
   }
 }

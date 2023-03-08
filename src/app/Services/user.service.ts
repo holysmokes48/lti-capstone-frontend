@@ -14,14 +14,16 @@ export class UserService {
 
   login(data: any) {
     this.userData.push(data);
-    console.log(this.userData);
     return this.http.post('http://localhost:8055/foodDeliveryAppClient/login',data);
   }
 
   register(data: any) {
     this.userData.push(data);
-    console.log(this.userData);
-    this.http.post('http://localhost:8055/foodDeliveryAppClient/createUser',data)
-      .subscribe(data => console.log(data), error => console.log(error));
+    return this.http.post('http://localhost:8055/foodDeliveryAppClient/createUser',data);
+  }
+
+  changePassword(data: any) {
+    this.userData.push(data);
+    return this.http.put('http://localhost:8055/foodDeliveryAppClient/updateUser',data);
   }
 }
