@@ -21,6 +21,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { OffersComponent } from './Pages/offers/offers.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { OfferComponent } from './Pages/shopping-cart/offer/offer.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { HttpClient } from '@angular/common/http';
     EditFoodItemComponent,
     CreateFoodItemComponent,
     FooterComponent,
-    OffersComponent
+    OffersComponent,
+    OfferComponent
   ],
   imports: [
     BrowserModule,

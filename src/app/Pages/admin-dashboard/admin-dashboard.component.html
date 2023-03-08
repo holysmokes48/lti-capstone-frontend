@@ -1,9 +1,9 @@
 <div className='container'>
     <div>
         <div class="p-5 text-center bg-light">
-            <h1 class="mb-3">Admin Dashboard </h1>
-          </div>
-    
+            <h2 class="mb-3">Admin Dashboard </h2>
+        </div>
+        <h4 class="mb-3 text-center">Registered Vendors</h4>
         <div>
             <table class="table">
                 <thead>
@@ -21,8 +21,8 @@
                         <td>{{vendor.vendorLocation}}</td>
                         <td>
                             <!-- <button type="button" class="btn btn-info">View</button> -->
-                            <button type="button" class="btn btn-success">Enable</button>
-                            <button type="button" class="btn btn-danger">Disable</button>
+                            <!-- <button type="button" class="btn btn-success">Enable</button> -->
+                            <button type="button" class="btn btn-danger" (click)="onDelete()">Delete</button>
                         </td>
                     </tr>
                 </tbody>
@@ -34,6 +34,7 @@
     <br>
     <div>
         <!-- <div class="d-flex p-2 justify-content-center">FeedBack</div> -->
+        <h4 class="mb-3 text-center">Feedbacks</h4>
         <div>
             <table class="table">
                 <thead>
