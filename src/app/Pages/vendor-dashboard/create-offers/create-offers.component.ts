@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { OfferService } from 'src/app/Services/offer.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-offers',
@@ -6,5 +11,39 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-offers.component.css']
 })
 export class CreateOffersComponent {
+  
+offerData:any[];
+
+constructor(private offerService: OfferService ,
+  private route: ActivatedRoute,
+  private router: Router){}
+
+offerForm: FormGroup;
+discount:FormControl;
+offerDescription: FormControl;
+
+ngOnInit(){
+  this.createFormControls();
+  this.createForm();
+}
+createForm() {
+  this.offerForm = new FormGroup({
+    discount:this.discount,
+    offerDescription:this.offerDescription,
+  })
+}
+
+createFormControls() {
+  this.discount = new FormControl('', Validators.required);
+  this.offerDescription = new FormControl('', Validators.required);
+}
+
+createOffer(){
+  console.log()
+  this.offerService.createOffer(this.offerForm.value)
+}
+
+//onBacktodashboard() {
+  //this.router.navigate(['/vendor-dashboard'], {relativeTo: this.route});}
 
 }
