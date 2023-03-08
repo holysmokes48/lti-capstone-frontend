@@ -8,17 +8,17 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        <th scope="col">Vendor ID</th>
                         <th scope="col">Vendor Name</th>
                         <th scope="col">Location</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Wendy's</td>
-                        <td>250 W 23rd St</td>
+                    <tr *ngFor="let vendor of vendorData; let i= index">
+                        <th scope = "row">{{i+1}}</th>
+                        <td>{{vendor.vendorName}}</td>
+                        <td>{{vendor.vendorLocation}}</td>
                         <td>
                             <!-- <button type="button" class="btn btn-info">View</button> -->
                             <button type="button" class="btn btn-success">Enable</button>
