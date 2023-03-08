@@ -1,3 +1,4 @@
+
 <header>
   <div class="p-5 text-center bg-light">
     <h1 class="mb-3">Create Offers </h1>
@@ -5,11 +6,12 @@
 </header>
 
 <div class="row">
+  <!-- <form (ngSubmit)="createOffer()"[formGroup]= "offerForm"> -->
     <div class="col-xs-12">
       <div class="row">
         <div class="col-xs-12">
           <button type="submit" class="btn btn-success">Save</button>
-          <button type="button" class="btn btn-danger">Back to Dashboard</button>
+          <button routerLink="/vendor-dashboard" class="btn btn-danger">Back to Dashboard</button>
         </div>
       </div>
       <div class="row">
@@ -55,4 +57,4 @@
     </div>
     <hr />
   </div>
-  
+   
