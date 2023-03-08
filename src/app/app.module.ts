@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { AdminDashboardComponent } from './Pages/admin-dashboard/admin-dashboard.component';
 import { RegisterComponent } from './Pages/register/register.component';
 import { LoginComponent } from './Pages/login/login.component';
-import { HomePageComponent } from './Pages/login/homepage.component';
 import { VendorDashboardComponent } from './Pages/vendor-dashboard/vendor-dashboard.component';
 import { UserDashboardComponent } from './Pages/user-dashboard/user-dashboard.component';
 import { ShoppingCartComponent } from './Pages/shopping-cart/shopping-cart.component';
