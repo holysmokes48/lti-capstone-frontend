@@ -18,7 +18,7 @@ export class AdminDashboardComponent implements OnInit {
 
 
   ngOnInit() { 
-    
+    this.loadVendors()
   }
 
   loadVendors() {
@@ -43,8 +43,13 @@ export class AdminDashboardComponent implements OnInit {
   }
   
   
-  onDelete(id: any) {
-    this.vs.deleteVendorbyId(id);
+  onDelete(vendor) {
+    this.vs.deleteVendorbyId(vendor.vendorId).subscribe(response=>{
+      console.log(response)
+      this.loadVendors()
+    });
+    
+    
   }
 
 

@@ -24,12 +24,12 @@ export class OfferService {
   }
 
   getOfferById(id: number){
-    return this.http.get(`http://localhost:8055/foodDeliveryAppClient/getOfferById/${id}`)
+    return this.http.get(`http://localhost:7080/foodDeliveryAppClient/getOfferById/${id}`)
   }
 
   updateOffer(data:any){
     this.offerData.push(data)
-    this.http.put('http://localhost:8055/foodDeliveryAppClient/updateOffer',data)
+    this.http.put('http://localhost:7080/foodDeliveryAppClient/updateOffer',data)
     .subscribe((data) =>{
       console.log(data);
 
