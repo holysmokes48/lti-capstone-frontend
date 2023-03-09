@@ -18,14 +18,14 @@ const routes: Routes = [
   {
     path: 'create-food-item',
     loadChildren: () =>
-      import('./Pages/create-food-item/create-food-item.module').then(
+      import('./Pages/vendor-dashboard/create-food-item/create-food-item.module').then(
         (m) => m.CreateFoodItemModule
       ),
   },
   {
     path: 'edit-food-item',
     loadChildren: () =>
-      import('./Pages/edit-food-item/edit-food-item.module').then(
+      import('./Pages/vendor-dashboard/edit-food-item/edit-food-item.module').then(
         (m) => m.EditFoodItemModule
       ),
   },
