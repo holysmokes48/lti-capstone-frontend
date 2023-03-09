@@ -14,7 +14,7 @@ offerData:any[];
 
 constructor(private offerService: OfferService ,
   private route: ActivatedRoute,
-  private router: Router){}
+  private _router: Router){}
 
 offerForm: FormGroup;
 discount:FormControl;
@@ -40,7 +40,9 @@ createFormControls() {
 
 createOffer(){
   console.log()
-  this.offerService.createOffer(this.offerForm.value)
+  this.offerService.createOffer(this.offerForm.value).subscribe((response) => {
+    this._router.navigate(['/vendor-dashboard', this.id]);
+  })
 }
 
 

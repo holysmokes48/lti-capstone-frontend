@@ -42,7 +42,7 @@ loadFoodItems(){
 
 deleteFoodItem(foodItem:any){
   this.foodService.deleteFoodItemById(foodItem.foodId).subscribe((response) => {
-    this.loadFoodItems();
+    this.loadFoodItems()
   });
 }
 
@@ -58,7 +58,8 @@ loadOffers(){
 
 deleteOffer(offer:any){
   this.offerservice.deleteOffer(offer.offerId).subscribe((response) => {
-    this.loadOffers();
+    console.log(response)
+    this.loadOffers()
   });
 }
 

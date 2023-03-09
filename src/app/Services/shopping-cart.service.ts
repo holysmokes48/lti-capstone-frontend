@@ -8,8 +8,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ShoppingCartService {
 
-  public cartItemList: any = [];
-  public productList = new BehaviorSubject<any>([]);
+  public cartItemList =[{foodName: "burer", description: "awefawe", price: 10}];
+  public productList = new BehaviorSubject<any>([{foodName: "burer", description: "awefawe", price: 10}]);
 
   constructor(private http: HttpClient, private fis: FoodItemService) {}
   
@@ -30,7 +30,7 @@ export class ShoppingCartService {
   getTotalPrice() {
     let grandTotal = 0;
     this.cartItemList.map((a: any) => {
-      grandTotal += a.total;
+      grandTotal += a.price;
     });
 
     return grandTotal;

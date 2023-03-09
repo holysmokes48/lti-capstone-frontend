@@ -13,6 +13,7 @@ export class ShoppingCartComponent implements OnInit{
   public product: any = [];
   public grandTotal!: number; 
   id:number;
+  discount:0;
 
   constructor(private cs: ShoppingCartService, private fis :FoodItemService, private route: ActivatedRoute
   ) {}

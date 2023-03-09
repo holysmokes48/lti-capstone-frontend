@@ -51,7 +51,6 @@
           
           <div class ="row">
             <app-offer></app-offer>
-            <router-outlet></router-outlet>
           </div>
           
           <br><br>
@@ -60,7 +59,7 @@
               <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark"><h2>Back to Food Menu</h2></button>
             </a>
 
-            <a [routerLink]="['/order-confirmation', id]">
+            <a [routerLink]="['/order-confirmation', discount]">
               <button type="button" class="btn btn-success btn-rounded"><h2>Submit Order</h2></button>
             </a>
         </div>

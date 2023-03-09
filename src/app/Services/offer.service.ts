@@ -16,12 +16,8 @@ export class OfferService {
   }
 
   createOffer(data:any){
-    this.offerData.push(data)
-    this.httpService.post('/createOffer',data)
-    .subscribe((data) =>{
-      console.log(data);
-
-    })
+    this.offerData.push(data);
+    return this.httpService.post('/createOffer',data);
   }
 
   getOfferById(id: number){
