@@ -15,7 +15,7 @@ export class OfferComponent implements OnInit {
 
 
   ngOnInit() { 
-    
+    this.loadOffers();
   }
 
   loadOffers() {

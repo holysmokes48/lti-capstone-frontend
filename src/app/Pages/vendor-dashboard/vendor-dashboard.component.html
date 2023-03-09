@@ -31,7 +31,7 @@
                   <button routerLink="/edit-food-item" class="btn btn-primary" >Edit Food</button>
               </td>
                 <td>
-                  <button (click)="deleteFoodItem(foodItemData)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                  <button (click)="deleteFoodItem(foodItem)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                 </td>
               </tr>
             </tbody>
@@ -41,8 +41,10 @@
   </div>
   </ng-container>
       <div class="text-center">
-        <button routerLink="/create-food-item" class="btn btn-success">Create Food Item</button>
-        </div>
+        <a [routerLink]="['/create-food-item', id]">
+          <button class="btn btn-success">Create Food Item</button>
+        </a>
+      </div>
         <br><br>
         <header>
           <div class="p-1 text-center bg-light">
@@ -70,7 +72,7 @@
                           <button routerLink="/edit-offers" type="button" class="btn btn-primary">Edit Offer</button>
                       </td>
                         <td>
-                          <button (click)="deleteOffer(offerData)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                          <button (click)="deleteOffer(offer)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </td>
                       </tr>
                     </tbody>
@@ -79,7 +81,9 @@
             </div>
           </div>
           </ng-container>
-        <div class="text-center">
-              <button routerLink="/create-offers"class="btn btn-success">Create Offer</button>
+          <div>
+            <a [routerLink]="['/create-offers', id]">
+              <button class="btn btn-success">Create Offer</button>
+            </a>
           </div>
           <br><br>

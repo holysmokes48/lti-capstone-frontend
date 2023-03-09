@@ -19,6 +19,7 @@ export class AdminDashboardComponent implements OnInit {
 
   ngOnInit() { 
     this.loadVendors()
+    this.loadFeedbacks()
   }
 
   loadVendors() {

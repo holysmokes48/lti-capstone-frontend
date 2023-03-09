@@ -12,6 +12,7 @@ export class HttpGeneralService {
   }
 
   post(apiRoute: string, body: any) {
+    console.log(body);
     return this.http.post(`${this.url + apiRoute}`, body, { headers: this.getHttpHeaders() });
   }
 

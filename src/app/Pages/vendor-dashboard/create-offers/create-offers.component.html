@@ -6,37 +6,41 @@
 </header>
 
 <div class="createOffer">
-    <!-- <form (ngSubmit)="createOffer()"[formGroup]= "offerForm">   -->
-  <div class="col-xs-12">
-    <div class="row">
-      <div class="col-xs-12">
-        <button type="submit" class="btn btn-success">Save</button>
-        <button routerLink="/vendor-dashboard/id:" class="btn btn-danger">Back to Dashboard</button>
+  <form (ngSubmit)="createOffer()"[formGroup]= "offerForm">
+    <div class="col-xs-12">
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success">Save</button>
+          <a [routerLink] = "['/vendor-dashboard', id]">
+            <button class="btn btn-danger">Back to Dashboard</button>
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="form-group">
-          <label for="discount">Discount</label>
-          <input
-            type="text"
-            formControlName="discount"
-            class="form-control"
-          />
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="discount">Discount</label>
+            <input
+              type="text"
+              formControlName="discount"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="offerDescription">Offer Description</label>
+            <textarea
+              type="text"
+              class="form-control"
+              formControlName="offerDescription"
+              rows="6"
+            ></textarea>
+          </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="form-group">
-          <label for="offerDescription">Offer Description</label>
-          <textarea
-            type="text"
-            class="form-control"
-            formControlName="offerDescription"
-            rows="6"
-          ></textarea>
-        </div>
-      </div>
-  <hr />
+  </form>
 </div>

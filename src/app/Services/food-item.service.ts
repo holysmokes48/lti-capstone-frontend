@@ -13,7 +13,6 @@ export class FoodItemService {
 
   getAllloadFoodItem(){
     return this.httpService.get(`/getAllFoodItems`)
-    
   }
 
   createFoodItem(data:any) {

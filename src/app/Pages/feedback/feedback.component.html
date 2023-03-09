@@ -8,12 +8,12 @@
       </header>
     </div>
     <div class="feedback">
-      <form>
+      <form (submit)="createFeedback()" [formGroup]="feedbackform">
         <br /><br />
         <h6>Rating (1-5):</h6>
-        <input type="number" style="height: 50px" /><br /><br /><br />
+        <input formControlName="rating" type="number" style="height: 50px" /><br /><br /><br />
         <h6>Feedback Description:</h6>
-        <input type="text" name="description" style="height: 100px" /><br /><br />
+        <input formControlName="description" type="text" style="height: 100px" /><br /><br />
   
         <!-- Submit button -->
         <button type="submit" class="btn btn-success btn-block mb-4">

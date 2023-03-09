@@ -25,6 +25,7 @@ import { VendorRegisterComponent } from './pages/vendor-register/vendor-register
 import { OfferComponent } from './Pages/shopping-cart/offer/offer.component';
 import { DatePipe } from '@angular/common';
 import { HttpGeneralService } from './shared/http-service/httpgeneral.service';
+import { CreateOffersComponent } from './Pages/vendor-dashboard/create-offers/create-offers.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { HttpGeneralService } from './shared/http-service/httpgeneral.service';
     FooterComponent,
     OffersComponent,
     VendorRegisterComponent,
-    OfferComponent
+    OfferComponent,
+    CreateOffersComponent
   ],
   imports: [
     BrowserModule,

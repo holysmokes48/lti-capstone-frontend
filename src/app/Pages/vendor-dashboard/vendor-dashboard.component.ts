@@ -22,10 +22,12 @@ constructor(private foodService: FoodItemService, private offerservice:OfferServ
 ngOnInit(){ 
   this.route.params.subscribe((params: Params) => {
     this.id=this.route.snapshot.params["id"];
+    this.vendorService.getVendorById(this.id).subscribe((response)=>{
+      this.vendorInfo= JSON.parse(JSON.stringify(response))
+    });
   });
-  this.vendorService.getVendorById(this.id).subscribe((response)=>{
-    this.vendorInfo= JSON.parse(JSON.stringify(response))
-  })
+  this.loadFoodItems();
+  this.loadOffers();
 }
 
 loadFoodItems(){
@@ -38,22 +40,27 @@ loadFoodItems(){
   })
 }
 
-deleteFoodItem(foodItemData:any){
-  this.foodService.deleteFoodItemById(foodItemData)
+deleteFoodItem(foodItem:any){
+  this.foodService.deleteFoodItemById(foodItem.foodId).subscribe((response) => {
+    this.loadFoodItems()
+  });
 }
 
 loadOffers(){
-this.offerservice.getAllOffers().subscribe((data) =>{
-  const locArray = [];
-  for(let key in data){
-    locArray.push(data[key]);
-      }
-      this.offerData= locArray
-})
+  this.offerservice.getAllOffers().subscribe((data) =>{
+    const locArray = [];
+    for(let key in data){
+      locArray.push(data[key]);
+        }
+        this.offerData= locArray
+  })
 }
 
-deleteOffer(offerData:any){
-  this.offerservice.deleteOffer(offerData)
+deleteOffer(offer:any){
+  this.offerservice.deleteOffer(offer.offerId).subscribe((response) => {
+    console.log(response)
+    this.loadOffers()
+  });
 }
 
 
