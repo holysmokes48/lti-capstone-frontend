@@ -1,51 +1,39 @@
-<div class="container" id="container1">
-  <div class="p-5 text-center bg-light fa-4x">
+<div class="container">
+  <div class="p-3 text-center bg-light fa-4x">
     <i class="fas fa-user-circle"></i>
-    <h1 class="mb-3">Login</h1>
+    <h1 class="mb-1">Login</h1>
   </div>
-  <form>
-    <br><br>
+  <form (ngSubmit)="login()" [formGroup]="loginform">
     <div class="form-group">
-      <label for="userInput">Username</label>
+      <label for="username">Username</label>
       <input
-        type="email"
+        type="text"
         class="form-control"
-        id="exampleInputEmail1"
-        aria-describedby="emailHelp"
-        placeholder="Enter username"
+        placeholder="Enter Username"
+        formControlName="userName"
       />
 
-      <label for="passwordConfirm">Password</label>
+      <label for="password">Password</label>
       <input
         type="password"
         class="form-control"
-        id="exampleInputPassword1"
-        placeholder="Password"
+        placeholder="Enter Password"
+        formControlName="password"
       />
+      <div *ngIf="loginform.controls['password'].invalid">
+        <p align="right">
+          Password must be length of 6 or more
+        </p>
+      </div>
+      <button class="btn btn-success" [disabled]="!loginform.valid">Login</button>
     </div>
   </form>
-
-  <br /><br />
-  <a
-    href="#"
-    class="btn btn-primary btn-lg active"
-    role="button"
-    aria-pressed="true"
-    >Login</a
-  >
-  <a
-    href="#"
-    class="btn btn-warning btn-lg active"
-    role="button"
-    aria-pressed="true"
-    >Register</a
-  >
-  <a
-    href="#"
-    class="btn btn-secondary btn-lg active"
-    role="button"
-    aria-pressed="true"
-    >Forgot Password</a
-  >
-  <br /><br />
+  <a routerLink="/register">
+    <button class="btn btn-primary">Register</button>
+  </a>
+  <a routerLink = "/forgot-password">
+    <button class="btn btn-warning">Forgot Password?</button>
+  </a>
+  <br>
+  <br>
 </div>

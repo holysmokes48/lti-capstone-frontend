@@ -19,12 +19,12 @@
             </tr>
           </thead>
           <tbody>
-              <tr>
-                <td>pizza</td>
-                <td>$10</td>
-                <td>pizza with chez</td>
+              <tr *ngFor="let foodItem of foodItemData;let i= index">
+                <td>{{foodItem.foodName}}</td>
+                <td>{{foodItem.price}}</td>
+                <td>{{foodItem.description}}</td>
                 <td>
-                  <button type="button" class="btn btn-primary">Edit Food</button>
+                  <button routerLink="/edit-food-item" class="btn btn-primary" >Edit Food</button>
               </td>
                 <td>
                   <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
@@ -37,9 +37,8 @@
   </div>
   </ng-container>
       <div class="text-center">
-            <button class="btn btn-success">Create Food Item</button>
+        <button routerLink="/create-food-item" class="btn btn-success">Create Food Item</button>
         </div>
-  
         <br><br><br><br>
         <ng-container>
           <div class="container">
@@ -48,7 +47,6 @@
                 <table class="table table-responsive">
                   <thead>
                     <tr>
-                      <th>Food Name</th>
                       <th>Discount</th>
                       <th>Offer Description</th>
                       <th>Edit</th>
@@ -56,12 +54,11 @@
                     </tr>
                   </thead>
                   <tbody>
-                      <tr>
-                        <td>pizza</td>
-                        <td>30% off</td>
-                        <td>30% off any pizza order</td>
+                      <tr *ngFor="let offer of offerData; let i= index">
+                        <td>{{offer.discount}}</td>
+                        <td>{{offer.offerDescription}}</td>
                         <td>
-                          <button type="button" class="btn btn-primary">Edit Offer</button>
+                          <button routerLink="/edit-offers" type="button" class="btn btn-primary">Edit Offer</button>
                       </td>
                         <td>
                           <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
@@ -74,7 +71,6 @@
           </div>
           </ng-container>
         <div class="text-center">
-              <button class="btn btn-success">Create Offer</button>
+              <button routerLink="/create-offers"class="btn btn-success">Create Offer</button>
           </div>
           <br>
-

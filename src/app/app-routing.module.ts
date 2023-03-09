@@ -66,6 +66,11 @@ const routes: Routes = [
       import('./Pages/register/register.module').then((m) => m.RegisterModule),
   },
   {
+    path: 'vendor-register/:id',
+    loadChildren: () =>
+      import('./Pages/vendor-register/vendor-register.module').then((m) => m.VendorRegisterModule),
+  },
+  {
     path: 'shopping-cart',
     loadChildren: () =>
       import('./Pages/shopping-cart/shopping-cart.module').then(
@@ -80,7 +85,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'vendor-dashboard',
+    path: 'vendor-dashboard/:id',
     loadChildren: () =>
       import('./Pages/vendor-dashboard/vendor-dashboard.module').then(
         (m) => m.VendorDashboardModule
@@ -98,6 +103,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./Pages/vendor-dashboard/edit-offers/edit-offers.module').then(
         (m) => m.EditOffersModule
+      ),
+  },
+  {
+    path: 'offer',
+    loadChildren: () =>
+      import('./Pages/shopping-cart/offer/offer.module').then(
+        (m) => m.OfferModule
       ),
   },
 
