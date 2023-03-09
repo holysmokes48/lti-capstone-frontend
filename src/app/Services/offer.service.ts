@@ -6,7 +6,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OfferService {
 
-  constructor(private http:HttpClient) { }
+  
+  constructor(private http:HttpClient) { 
+
+  }
 
   offerData: FormData[]=[]
 
