@@ -11,31 +11,31 @@ export class VendorService {
   offerData: FormData[] = [];
 
   getAllVendors() {
-    return this.http.get('/getAllVendors');
+    return this.httpService.get('/getAllVendors');
   }
 
   createVendor(data: any) {
     this.offerData.push(data);
-    return this.http.post('/createVendor', data);
+    return this.httpService.post('/createVendor', data);
   }
 
   getVendorById(id: number) {
-    return this.http.get(`/getVendorById/${id}`);
+    return this.httpService.get(`/getVendorById/${id}`);
   }
   getVendorByUserId(id: number) {
-    return this.http.get(`/getVendorByUserId/${id}`);
+    return this.httpService.get(`/getVendorByUserId/${id}`);
   }
 
   updateVendor(data: any) {
     this.offerData.push(data);
-    this.http.put('/updateVendor', data).subscribe((data) => {
+    this.httpService.put('/updateVendor', data).subscribe((data) => {
       console.log(data);
     });
   }
 
   deleteVendorbyId(id: number) {
     console.log(id)
-    return this.http.delete(`/deleteVendorById/${id}`);
+    return this.httpService.delete(`/deleteVendorById/${id}`);
   }
 
   /*

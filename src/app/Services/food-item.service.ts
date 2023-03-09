@@ -12,14 +12,14 @@ export class FoodItemService {
   constructor(private http: HttpClient, private httpService: HttpGeneralService) { }
 
   getAllloadFoodItem(){
-    return this.http.get(`/getAllFoodItems`)
+    return this.httpService.get(`/getAllFoodItems`)
     
   }
 
   createFoodItem(data:any) {
     
     this.foodItemData.push(data)
-    this.http.post('/createFoodItem',data)
+    this.httpService.post('/createFoodItem',data)
     .subscribe((data) =>{
       console.log(data);
 
@@ -27,21 +27,21 @@ export class FoodItemService {
     
   }
   getFoodItemById(id: number) {
-    return this.http.get(`/getFoodItemById/${id}}`)
+    return this.httpService.get(`/getFoodItemById/${id}}`)
   }
   updateFoodItem(data: any) {
     this.foodItemData.push(data)
-    this.http.put('/updateFoodItem', data)
+    this.httpService.put('/updateFoodItem', data)
     .subscribe((data) =>{
       console.log(data);
     })
   }
   deleteFoodItemById(id: number) {
-    return this.http.delete(`/deleteFoodItemById/${id}`)
+    return this.httpService.delete(`/deleteFoodItemById/${id}`)
   }
   //returns by a list
   getFoodByVendorId(id: number) {
-    return this.http.get(`/findfood/${id}`)
+    return this.httpService.get(`/findfood/${id}`)
   }
 
   /*

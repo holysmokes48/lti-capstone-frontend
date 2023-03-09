@@ -12,12 +12,12 @@ export class FeedbackService {
   feedbackData: FormData[]=[]
 
   getAllFeedback(){
-    return this.http.get('/getAllFeedbacks')
+    return this.httpService.get('/getAllFeedbacks')
   }
 
   createFeedback(data:any){
     this.feedbackData.push(data)
-    this.http.post('/createFeedback',data)
+    this.httpService.post('/createFeedback',data)
     .subscribe((data) =>{
       console.log(data);
 

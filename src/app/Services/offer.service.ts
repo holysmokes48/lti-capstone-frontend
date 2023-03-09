@@ -12,12 +12,12 @@ export class OfferService {
   offerData: FormData[]=[]
 
   getAllOffers(){
-    return this.http.get('/getAllOffers')
+    return this.httpService.get('/getAllOffers')
   }
 
   createOffer(data:any){
     this.offerData.push(data)
-    this.http.post('/createOffer',data)
+    this.httpService.post('/createOffer',data)
     .subscribe((data) =>{
       console.log(data);
 
@@ -25,12 +25,12 @@ export class OfferService {
   }
 
   getOfferById(id: number){
-    return this.http.get(`/getOfferById/${id}`)
+    return this.httpService.get(`/getOfferById/${id}`)
   }
 
   updateOffer(data:any){
     this.offerData.push(data)
-    this.http.put('/updateOffer',data)
+    this.httpService.put('/updateOffer',data)
     .subscribe((data) =>{
       console.log(data);
 
@@ -38,7 +38,7 @@ export class OfferService {
   }
 
   deleteOffer(id: number){
-    return this.http.delete(`/deleteOfferById/${id}`);
+    return this.httpService.delete(`/deleteOfferById/${id}`);
   }
 
   /*
