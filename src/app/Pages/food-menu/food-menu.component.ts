@@ -26,9 +26,14 @@ export class FoodMenuComponent implements OnInit {
       this.id = +params['id'];
 
     });
+    this.loadVendor();
+    this.loadFoodItems();
+  }
+
+  loadVendor() {
     this.vs.getVendorById(this.id).subscribe((response)=>{
       this.vendorInfo= JSON.parse(JSON.stringify(response))
-    })
+    });
   }
 
   loadFoodItems() {
