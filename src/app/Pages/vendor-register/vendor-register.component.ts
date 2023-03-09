@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Params } from 'react-router-dom';
+import { Params } from '@angular/router';
 import { VendorService } from 'src/app/Services/vendor.service';
 
 @Component({
