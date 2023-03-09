@@ -10,21 +10,21 @@
         <table class="table table-responsive">
             <thead>
                 <tr>
-                    <th>Food Name</th>
-                    <th>Food Description</th>
-                    <th>Food Price</th>
-                    <th>Add Item</th>
+                    <th scope="col">Food ID</th>
+                    <th scope="col">Food Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Food Price</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Burger</td>
-                    <td>Burger with cheese</td>
-                    <td>$13.00</td>
+                <tr *ngFor="let food of fooditem; let i= index">
+                    <th scope = "row">{{i+1}}</th>
+                    <td>{{food.foodName}}</td>
+                    <td>{{food.description}}</td>
+                    <td>{{food.price}}</td>
                     <td>
-                        <button class="btn btn-success">
-                            Add
-                        </button>
+                        <button type="button" class="btn btn-success" (click)="addToCart(food)">Add</button>
                     </td>
                 </tr>
             </tbody>
@@ -32,7 +32,14 @@
     </div>
     <br>
     <div class="d-flex justify-content-center">
-        <button class="btn btn-danger">Back to Dashboard</button>
-        <button class="btn btn-primary" onclick="loginUser()">Go to Cart</button>
+        <a routerLink="/user-dashboard">
+            <button class="btn btn-warning">Back to Dashboard</button>
+        </a>
+        <a routerLink="/shopping-cart">
+            <button class="btn btn-primary">Go to Cart</button>
+        </a>
+        
+        <!-- <button class="btn btn-danger">Back to Dashboard</button>
+        <button class="btn btn-primary" onclick="loginUser()">Go to Cart</button> -->
     </div>
 </ng-container>
