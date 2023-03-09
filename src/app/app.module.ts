@@ -15,14 +15,16 @@ import { OrderConfirmationComponent } from './Pages/order-confirmation/order-con
 import { FeedbackComponent } from './Pages/feedback/feedback.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { HomeComponent } from './Pages/home/home.component';
-import { EditFoodItemComponent } from './Pages/edit-food-item/edit-food-item.component';
-import { CreateFoodItemComponent } from './Pages/create-food-item/create-food-item.component';
+import { EditFoodItemComponent } from './Pages/vendor-dashboard/edit-food-item/edit-food-item.component';
+import { CreateFoodItemComponent } from './Pages/vendor-dashboard/create-food-item/create-food-item.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { OffersComponent } from './Pages/offers/offers.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { VendorRegisterComponent } from './pages/vendor-register/vendor-register.component';
 import { OfferComponent } from './Pages/shopping-cart/offer/offer.component';
+import { HttpGeneralService } from './shared/http-service/httpgeneral.service';
+import { CreateOffersComponent } from './Pages/vendor-dashboard/create-offers/create-offers.component';
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import { OfferComponent } from './Pages/shopping-cart/offer/offer.component';
     FooterComponent,
     OffersComponent,
     VendorRegisterComponent,
-    OfferComponent
+    OfferComponent,
+    CreateOffersComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,7 @@ import { OfferComponent } from './Pages/shopping-cart/offer/offer.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [HttpGeneralService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { OfferService } from 'src/app/Services/offer.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -21,10 +19,12 @@ constructor(private offerService: OfferService ,
 offerForm: FormGroup;
 discount:FormControl;
 offerDescription: FormControl;
+id: number;
 
 ngOnInit(){
   this.createFormControls();
   this.createForm();
+  this.id=this.route.snapshot.params["id"];
 }
 createForm() {
   this.offerForm = new FormGroup({
@@ -43,7 +43,5 @@ createOffer(){
   this.offerService.createOffer(this.offerForm.value)
 }
 
-//onBacktodashboard() {
-  //this.router.navigate(['/vendor-dashboard'], {relativeTo: this.route});}
 
 }

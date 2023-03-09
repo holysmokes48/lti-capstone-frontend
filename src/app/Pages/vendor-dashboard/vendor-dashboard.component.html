@@ -1,6 +1,8 @@
+
 <header>
   <div class="p-5 text-center bg-light">
-    <h1 class="mb-3">Vendor Dashboard </h1>
+    <h1 class="mb-3"> Name: {{vendorInfo.vendorName}} </h1>
+    <h3>Location: {{vendorInfo.vendorLocation}}</h3>
   </div>
 </header>
 
@@ -11,6 +13,7 @@
         <table class="table table-responsive">
           <thead>
             <tr>
+              <th>Food ID</th>
               <th>Food Name</th>
               <th>Price</th>
               <th>Description</th>
@@ -20,6 +23,7 @@
           </thead>
           <tbody>
               <tr *ngFor="let foodItem of foodItemData;let i= index">
+                <th scope = "row">{{i+1}}</th>
                 <td>{{foodItem.foodName}}</td>
                 <td>{{foodItem.price}}</td>
                 <td>{{foodItem.description}}</td>
@@ -27,7 +31,7 @@
                   <button routerLink="/edit-food-item" class="btn btn-primary" >Edit Food</button>
               </td>
                 <td>
-                  <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                  <button (click)="deleteFoodItem(foodItem)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                 </td>
               </tr>
             </tbody>
@@ -37,10 +41,17 @@
   </div>
   </ng-container>
       <div class="text-center">
-        <button routerLink="/create-food-item" class="btn btn-success">Create Food Item</button>
-        </div>
-        <br><br><br><br>
-        <ng-container>
+        <a [routerLink]="['/create-food-item', id]">
+          <button class="btn btn-success">Create Food Item</button>
+        </a>
+      </div>
+        <br><br>
+        <header>
+          <div class="p-1 text-center bg-light">
+            <h1 class="mb-1"> Discounts</h1>
+          </div>
+        </header>
+                <ng-container>
           <div class="container">
             <div class="offer-table">
               <div class="offer-items">
@@ -61,7 +72,7 @@
                           <button routerLink="/edit-offers" type="button" class="btn btn-primary">Edit Offer</button>
                       </td>
                         <td>
-                          <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                          <button (click)="deleteOffer(offer)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </td>
                       </tr>
                     </tbody>
@@ -70,7 +81,9 @@
             </div>
           </div>
           </ng-container>
-        <div class="text-center">
-              <button routerLink="/create-offers"class="btn btn-success">Create Offer</button>
+          <div>
+            <a [routerLink]="['/create-offers', id]">
+              <button class="btn btn-success">Create Offer</button>
+            </a>
           </div>
-          <br>
+          <br><br>
