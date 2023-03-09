@@ -35,7 +35,7 @@ const routes: Routes = [
       import('./Pages/feedback/feedback.module').then((m) => m.FeedbackModule),
   },
   {
-    path: 'food-menu',
+    path: 'food-menu/:id',
     loadChildren: () =>
       import('./Pages/food-menu/food-menu.module').then(
         (m) => m.FoodMenuModule

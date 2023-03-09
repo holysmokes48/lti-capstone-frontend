@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Params } from 'react-router-dom';
+import { ActivatedRoute, Router } from '@angular/router'
 import { VendorService } from 'src/app/Services/vendor.service';
-
+import {Params}  from 'react-router-dom'
 @Component({
   selector: 'app-vendor-register',
   templateUrl: './vendor-register.component.html',
