@@ -23,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { VendorRegisterComponent } from './pages/vendor-register/vendor-register.component';
 import { OfferComponent } from './Pages/shopping-cart/offer/offer.component';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -53,7 +54,7 @@ import { OfferComponent } from './Pages/shopping-cart/offer/offer.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -38,7 +38,7 @@
                 </td>
                 <td><h5>1</h5></td>
                 <td>
-                  <button type="button" class="btn btn-link btn-lg btn-rounded bg-danger text-light" (click)="deleteCartItem">
+                  <button type="button" class="btn btn-link btn-lg btn-rounded bg-danger text-light" (click)="removeItem(foodItem)">
                     Delete
                   </button>
                 </td>
@@ -60,7 +60,7 @@
               <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark"><h2>Back to Food Menu</h2></button>
             </a>
 
-            <a routerLink="/order-confirmation">
+            <a [routerLink]="['/order-confirmation', id]">
               <button type="button" class="btn btn-success btn-rounded"><h2>Submit Order</h2></button>
             </a>
         </div>

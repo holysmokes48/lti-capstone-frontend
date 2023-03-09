@@ -214,7 +214,7 @@
                         </h2>
                       </td>
                     </tr>
-                    <tr>
+                    <tr  *ngFor="let vendor of vendorData; let i= index">
                       <td
                         align="left"
                         style="
@@ -234,7 +234,7 @@
                             text-align: center;
                           "
                         >
-                          Your order at Emilio's Pizzeria has been placed!
+                          Your order at {{vendor.vendorName}} has been placed!
                         </p>
                       </td>
                     </tr>
@@ -291,7 +291,7 @@
                                 padding: 15px 10px 5px 10px;
                               "
                             >
-                              Purchased Item (12)
+                              Subtotal
                             </td>
                             <td
                               width="25%"
@@ -305,7 +305,7 @@
                                 padding: 15px 10px 5px 10px;
                               "
                             >
-                              $100.00
+                              ${{getSubtotal()}}
                             </td>
                           </tr>
                           <tr>
@@ -321,7 +321,7 @@
                                 padding: 5px 10px;
                               "
                             >
-                              Delivery Fee
+                              Applied Offers
                             </td>
                             <td
                               width="25%"
@@ -335,37 +335,7 @@
                                 padding: 5px 10px;
                               "
                             >
-                              $10.00
-                            </td>
-                          </tr>
-                          <tr>
-                            <td
-                              width="75%"
-                              align="left"
-                              style="
-                                font-family: Open Sans, Helvetica, Arial,
-                                  sans-serif;
-                                font-size: 16px;
-                                font-weight: 400;
-                                line-height: 24px;
-                                padding: 5px 10px;
-                              "
-                            >
-                              Sales Tax
-                            </td>
-                            <td
-                              width="25%"
-                              align="left"
-                              style="
-                                font-family: Open Sans, Helvetica, Arial,
-                                  sans-serif;
-                                font-size: 16px;
-                                font-weight: 400;
-                                line-height: 24px;
-                                padding: 5px 10px;
-                              "
-                            >
-                              $5.00
+                              ${{getAppliedOffer()}}                            
                             </td>
                           </tr>
                         </table>
@@ -394,7 +364,7 @@
                                 border-bottom: 3px solid #eeeeee;
                               "
                             >
-                              TOTAL
+                              GRAND TOTAL
                             </td>
                             <td
                               width="25%"
@@ -410,7 +380,7 @@
                                 border-bottom: 3px solid #eeeeee;
                               "
                             >
-                              $115.00
+                              ${{getGrandTotal()}}
                             </td>
                           </tr>
                         </table>
@@ -447,34 +417,6 @@
                             width: 100%;
                           "
                         >
-                          <table
-                            align="left"
-                            border="0"
-                            cellpadding="0"
-                            cellspacing="0"
-                            width="100%"
-                            style="max-width: 300px"
-                          >
-                            <tr>
-                              <td
-                                align="left"
-                                valign="top"
-                                style="
-                                  font-family: Open Sans, Helvetica, Arial,
-                                    sans-serif;
-                                  font-size: 16px;
-                                  font-weight: 400;
-                                  line-height: 24px;
-                                "
-                              >
-                                <p style="font-weight: 800">Delivery Address</p>
-                                <p>
-                                  123 Food Avenue<br />15th Floor<br />New York,
-                                  NY 10007
-                                </p>
-                              </td>
-                            </tr>
-                          </table>
                         </div>
                         <div
                           style="
@@ -486,7 +428,7 @@
                           "
                         >
                           <table
-                            align="left"
+                            align="center"
                             border="0"
                             cellpadding="0"
                             cellspacing="0"
@@ -495,7 +437,7 @@
                           >
                             <tr>
                               <td
-                                align="left"
+                                align="center"
                                 valign="top"
                                 style="
                                   font-family: Open Sans, Helvetica, Arial,
@@ -508,7 +450,7 @@
                                 <p style="font-weight: 800">
                                   Estimated Time of Delivery
                                 </p>
-                                <p>March 7, 2023 <span>12:30pm EST</span></p>
+                                <p>30-45 minutes from <br>{{currentDateTime}}pm</p>
                               </td>
                             </tr>
                           </table>
@@ -521,7 +463,7 @@
               <tr>
                 <td
                   align="center"
-                  style="padding: 35px; background-color: #D9DBF1"
+                  style="padding: 35px; background-color: #d9dbf1"
                   bgcolor="#1b9ba3"
                 >
                   <table
@@ -536,15 +478,25 @@
                       <td align="center" style="padding: 25px 0 15px 0">
                         <table border="0" cellspacing="0" cellpadding="0">
                           <tr>
-                            <td
-                              align="center"
-                            >
-                            <a routerLink="/user-dashboard">
-                            <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark"><h2>Back to Dashboard</h2></button>
-                            </a>
-                            <a routerLink="/feedback">
-                            <button type="button" class="btn btn-outline-success" data-mdb-ripple-color="dark"><h2>Submit Your Feedback</h2></button>
-                            </a>
+                            <td align="center">
+                              <a routerLink="/user-dashboard">
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-primary"
+                                  data-mdb-ripple-color="dark"
+                                >
+                                  <h2>Back to Dashboard</h2>
+                                </button>
+                              </a>
+                              <a routerLink="/feedback">
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-success"
+                                  data-mdb-ripple-color="dark"
+                                >
+                                  <h2>Submit Your Feedback</h2>
+                                </button>
+                              </a>
                             </td>
                           </tr>
                         </table>
@@ -568,7 +520,6 @@
                     style="max-width: 600px"
                   ></table>
                 </td>
-
               </tr>
             </table>
           </td>

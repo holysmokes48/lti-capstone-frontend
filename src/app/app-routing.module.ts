@@ -54,7 +54,7 @@ const routes: Routes = [
       import('./Pages/login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: 'order-confirmation',
+    path: 'order-confirmation/:id',
     loadChildren: () =>
       import('./Pages/order-confirmation/order-confirmation.module').then(
         (m) => m.OrderConfirmationModule
