@@ -37,7 +37,7 @@ export class OfferService {
   }
 
   deleteOffer(id: number){
-    return this.http.delete(`http://localhost:8055/foodDeliveryAppClient/deleteOfferById/${id}`);
+    return this.http.delete(`http://localhost:7080/foodDeliveryAppClient/deleteOfferById/${id}`);
   }
 
 }

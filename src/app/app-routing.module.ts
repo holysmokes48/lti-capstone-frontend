@@ -71,7 +71,7 @@ const routes: Routes = [
       import('./Pages/vendor-register/vendor-register.module').then((m) => m.VendorRegisterModule),
   },
   {
-    path: 'shopping-cart',
+    path: 'shopping-cart/:id',
     loadChildren: () =>
       import('./Pages/shopping-cart/shopping-cart.module').then(
         (m) => m.ShoppingCartModule

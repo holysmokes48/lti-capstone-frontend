@@ -20,53 +20,30 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let foodItem of product;let i= index">
                 <td>
                   <div class="d-flex align-items-center">
                     <div class="ms-3">
-                      <h5 class="fw-bold mb-1">Lasagna</h5>
+                      <h5 class="fw-bold mb-1">{{foodItem.foodName}}</h5>
 
                     </div>
                   </div>
                 </td>
                 <td>
-                  <h5 class="fw-normal mb-1">Homemade Nana's Lasagna</h5>
+                  <h5 class="fw-normal mb-1">{{foodItem.description}}</h5>
 
                 </td>
                 <td>
-                  <h5>$20.00</h5>
+                  <h5>{{foodItem.price}}</h5>
                 </td>
                 <td><h5>1</h5></td>
                 <td>
-                  <button type="button" class="btn btn-link btn-lg btn-rounded bg-danger text-light">
+                  <button type="button" class="btn btn-link btn-lg btn-rounded bg-danger text-light" (click)="deleteCartItem">
                     Delete
                   </button>
                 </td>
               </tr>
-             
-              <tr>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <div class="ms-3">
-                      <h5 class="fw-bold mb-1">Tiramisu Slice</h5>
-
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <h5 class="fw-normal mb-1">Creamy, rich homemade Tiramisu</h5>
-
-                </td>
-                <td>
-                  <h5>$7.00</h5>
-                </td>
-                <td><h5>1</h5></td>
-                <td>
-                  <button type="button" class="btn btn-link btn-lg btn-rounded bg-danger text-light">
-                    Delete
-                  </button>
-                </td>
-              </tr>
+          
             </tbody>
           </table>
           <br>
@@ -79,8 +56,8 @@
           
           <br><br>
         <div class ="row">
-            <a routerLink="/user-dashboard">
-              <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark"><h2>Back to Dashboard</h2></button>
+            <a [routerLink]="['/food-menu', id]">
+              <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark"><h2>Back to Food Menu</h2></button>
             </a>
 
             <a routerLink="/order-confirmation">
@@ -89,3 +66,4 @@
         </div>
     </div>
 </div>
+              
