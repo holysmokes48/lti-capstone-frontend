@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
+
+  id:number;
+  constructor(private route: ActivatedRoute) {}
+  
+    ngOnInit() {
+      this.id=this.route.snapshot.params["id"];
+    }
 
 }
