@@ -11,12 +11,12 @@ export class OfferService {
   offerData: FormData[]=[]
 
   getAllOffers(){
-    return this.http.get('http://localhost:8055/foodDeliveryAppClient/getAllOffers')
+    return this.http.get('http://localhost:7080/foodDeliveryAppClient/getAllOffers')
   }
 
   createOffer(data:any){
     this.offerData.push(data)
-    this.http.post('http://localhost:8055/foodDeliveryAppClient/createOffer',data)
+    this.http.post('http://localhost:7080/foodDeliveryAppClient/createOffer',data)
     .subscribe((data) =>{
       console.log(data);
 
