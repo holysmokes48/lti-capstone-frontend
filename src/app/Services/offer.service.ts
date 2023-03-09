@@ -49,7 +49,7 @@ export class OfferService {
 
   createOffer(data:any){
     this.offerData.push(data)
-    this.http.post('http://localhost:8055/foodDeliveryAppClient/createOffer',data)
+    this.http.post('http://localhost:7080/foodDeliveryAppClient/createOffer',data)
     .subscribe((data) =>{
       console.log(data);
 
@@ -57,12 +57,12 @@ export class OfferService {
   }
 
   getOfferById(id: number){
-    return this.http.get(`http://localhost:8055/foodDeliveryAppClient/getOfferById/${id}`)
+    return this.http.get(`http://localhost:7080/foodDeliveryAppClient/getOfferById/${id}`)
   }
 
   updateOffer(data:any){
     this.offerData.push(data)
-    this.http.put('http://localhost:8055/foodDeliveryAppClient/updateOffer',data)
+    this.http.put('http://localhost:7080/foodDeliveryAppClient/updateOffer',data)
     .subscribe((data) =>{
       console.log(data);
 
@@ -70,7 +70,7 @@ export class OfferService {
   }
 
   deleteOffer(id: number){
-    return this.http.delete(`http://localhost:8055/foodDeliveryAppClient/deleteOfferById/${id}`);
+    return this.http.delete(`http://localhost:7080/foodDeliveryAppClient/deleteOfferById/${id}`);
   }
 
   */

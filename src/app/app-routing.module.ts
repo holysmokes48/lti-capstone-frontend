@@ -54,7 +54,7 @@ const routes: Routes = [
       import('./Pages/login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: 'order-confirmation',
+    path: 'order-confirmation/:id',
     loadChildren: () =>
       import('./Pages/order-confirmation/order-confirmation.module').then(
         (m) => m.OrderConfirmationModule
@@ -71,7 +71,7 @@ const routes: Routes = [
       import('./Pages/vendor-register/vendor-register.module').then((m) => m.VendorRegisterModule),
   },
   {
-    path: 'shopping-cart',
+    path: 'shopping-cart/:id',
     loadChildren: () =>
       import('./Pages/shopping-cart/shopping-cart.module').then(
         (m) => m.ShoppingCartModule

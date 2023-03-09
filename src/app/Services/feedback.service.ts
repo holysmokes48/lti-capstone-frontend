@@ -32,7 +32,7 @@ export class FeedbackService {
 
   createFeedback(data:any){
     this.feedbackData.push(data)
-    this.http.post('http://localhost:8055/foodDeliveryAppClient/createFeedback',data)
+    this.http.post('http://localhost:7080/foodDeliveryAppClient/createFeedback',data)
     .subscribe((data) =>{
       console.log(data);
 
