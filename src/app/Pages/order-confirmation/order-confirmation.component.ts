@@ -18,6 +18,7 @@ export class OrderConfirmationComponent {
   grandTotal!: number; 
   id:number;
   currentDateTime: any;
+  offer:number;
 
   constructor(private cs: ShoppingCartService, private fis :FoodItemService, private os: OfferService, private vs: VendorService, private route: ActivatedRoute, private datepipe: DatePipe,
     ) {
@@ -31,6 +32,7 @@ export class OrderConfirmationComponent {
     });
     this.id=this.route.snapshot.params["id"];
 
+
     //load vendor details on order confirmation page
     this.vs.getVendorById(this.id).subscribe((res) => {
       const locArray = [];
@@ -43,9 +45,12 @@ export class OrderConfirmationComponent {
 
   //before offer is applied to order
   getSubtotal() {
-
+    return this.grandTotal
   }
+
+  //gets applied offer to be viewed on order confirmation page
   getAppliedOffer(){
+  
 
   }
 
