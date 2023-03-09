@@ -11,12 +11,12 @@ export class OfferService {
   offerData: FormData[]=[]
 
   getAllOffers(){
-    return this.http.get('/offers')
+    return this.http.get('http://localhost:8055/foodDeliveryAppClient/getAllOffers')
   }
 
   createOffer(data:any){
     this.offerData.push(data)
-    this.http.post('/createoffer',data)
+    this.http.post('http://localhost:8055/foodDeliveryAppClient/createOffer',data)
     .subscribe((data) =>{
       console.log(data);
 
@@ -24,12 +24,12 @@ export class OfferService {
   }
 
   getOfferById(id: number){
-    return this.http.get(`/offerbyid/${id}`)
+    return this.http.get(`http://localhost:8055/foodDeliveryAppClient/getOfferById/${id}`)
   }
 
   updateOffer(data:any){
     this.offerData.push(data)
-    this.http.put('/updateoffer',data)
+    this.http.put('http://localhost:8055/foodDeliveryAppClient/updateOffer',data)
     .subscribe((data) =>{
       console.log(data);
 
@@ -37,7 +37,7 @@ export class OfferService {
   }
 
   deleteOffer(id: number){
-    return this.http.delete(`/deleteoffer/${id}`);
+    return this.http.delete(`http://localhost:8055/foodDeliveryAppClient/deleteOfferById/${id}`);
   }
 
 }
