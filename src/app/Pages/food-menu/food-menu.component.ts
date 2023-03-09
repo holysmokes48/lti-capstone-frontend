@@ -42,7 +42,7 @@ export class FoodMenuComponent implements OnInit {
   }
 
   addToCart(item:any){
-    this.sc.addItemtoCart(item)
+    this.sc.addToCart(item)
   }
 
 

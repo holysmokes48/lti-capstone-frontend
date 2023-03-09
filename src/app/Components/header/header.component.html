@@ -4,7 +4,7 @@
     <!-- Container wrapper -->
     <div class="container">
       <!-- Navbar brand -->
-      <a class="navbar-brand me-2" href="https://mdbgo.com/">
+      <a routerLink="/home">
         <img
           src="https://i.pinimg.com/originals/94/ee/2f/94ee2fda4931c26b3c55ed23d28e885e.png"
           height="40"
@@ -48,11 +48,11 @@
               Sign up for free
             </button>
           </a>
-          <a routerLink="shopping-cart"
-            class="btn btn-dark px-3"
-            role="button"
-            ><i class="fas fa-shopping-basket"></i
-          ></a>
+          <a [routerLink]="['/shopping-cart', id]"> 
+            <button type="button" class="btn btn-dark px-3">
+              <i class="fas fa-shopping-basket"></i>
+            </button>
+          </a>
         </div>
       </div>
       <!-- Collapsible wrapper -->
