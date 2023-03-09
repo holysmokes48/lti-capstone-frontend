@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Params } from '@angular/router';
 import { VendorService } from 'src/app/Services/vendor.service';
 
 @Component({
@@ -15,7 +14,7 @@ export class VendorRegisterComponent {
   }
   
   vendor: any;
-  id: any;
+  id: number;
   vendorregisterform: FormGroup;
   vendorName: FormControl;
   vendorLocation: FormControl;
@@ -23,9 +22,7 @@ export class VendorRegisterComponent {
   ngOnInit() {
     this.createFormControls();
     this.createForm();
-    this.route.params.subscribe((params: Params) => {
-      this.id = +params['id'];
-    });
+    this.id=this.route.snapshot.params["id"];
   }
 
   createForm() {
