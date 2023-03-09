@@ -23,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { VendorRegisterComponent } from './pages/vendor-register/vendor-register.component';
 import { OfferComponent } from './Pages/shopping-cart/offer/offer.component';
+import { HttpGeneralService } from './shared/http-service/httpgeneral.service';
 
 
 @NgModule({
@@ -53,7 +54,7 @@ import { OfferComponent } from './Pages/shopping-cart/offer/offer.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [HttpGeneralService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
