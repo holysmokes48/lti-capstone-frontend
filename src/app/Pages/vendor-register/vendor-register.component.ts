@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-<<<<<<< HEAD
 import { ActivatedRoute, Router } from '@angular/router';
-=======
-import { ActivatedRoute, Params, Router } from '@angular/router';
->>>>>>> 5e05244dee9be8ca86e6ca9ba8c460202c411a4d
 import { VendorService } from 'src/app/Services/vendor.service';
 
 @Component({
