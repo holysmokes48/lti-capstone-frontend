@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FeedbackService } from 'src/app/Services/feedback.service';
 import { VendorService } from 'src/app/Services/vendor.service';
 
@@ -12,9 +13,8 @@ export class AdminDashboardComponent implements OnInit {
 
   feedbackData: any[];
   vendorData: any[];
-  vendorId: number;
 
-  constructor(private fs: FeedbackService, private vs: VendorService) { }
+  constructor(private fs: FeedbackService, private vs: VendorService, private _router: Router) { }
 
 
   ngOnInit() { 
@@ -43,8 +43,8 @@ export class AdminDashboardComponent implements OnInit {
   }
   
   
-  onDelete() {
-    this.vs.deleteVendorbyId(this.vendorId);
+  onDelete(id: any) {
+    this.vs.deleteVendorbyId(id);
   }
 
 
