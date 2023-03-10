@@ -1,11 +1,10 @@
 <div class="container">
     <div class="overlay">
       <header>
-        <!-- Jumbotron -->
-        <div class="p-5 text-center bg-secondary">
-          <h1 class="mb-9">Feedback</h1>
+        <div class="p-3 text-center bg-light">
+          <h1 class="mb-3">Feedback </h1>
         </div>
-      </header>
+      </header>      
     </div>
     <div class="feedback">
       <form (submit)="createFeedback()" [formGroup]="feedbackform">
@@ -14,11 +13,15 @@
         <input formControlName="rating" type="number" style="height: 50px" /><br /><br /><br />
         <h6>Feedback Description:</h6>
         <input formControlName="description" type="text" style="height: 100px" /><br /><br />
-  
         <!-- Submit button -->
-        <button routerLink="/user-dashboard" type="submit" class="btn btn-success btn-block mb-4">
-          <h4>Submit Feedback</h4>
-        </button>
+     <!--    <button routerLink="/user-dashboard" type="submit" style="height:50px; width:px;" class="btn btn-success btn-block mb-4">
+          <h5>Submit Feedback</h5>
+        </button> -->
+        <div class="text-center">
+          <a [routerLink]="['/user-dashboard']">
+            <button type="submit" class="btn btn-success">Submit Feedback</button>
+          </a>
+        </div>
       </form>
     </div>
   </div>

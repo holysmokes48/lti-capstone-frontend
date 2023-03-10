@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="p-3 text-center bg-light fa-4x">
+  <div class="p-2 text-center bg-light fa-3x">
     <i class="fas fa-user-circle"></i>
     <h1 class="mb-1">Login</h1>
   </div>
@@ -25,7 +25,7 @@
           Password must be length of 6 or more
         </p>
       </div>
-      <button class="btn btn-success" [disabled]="!loginform.valid">Login</button>
+      <button class="btn btn-success" style [disabled]="!loginform.valid">Login</button>
     </div>
   </form>
   <a routerLink="/register">
