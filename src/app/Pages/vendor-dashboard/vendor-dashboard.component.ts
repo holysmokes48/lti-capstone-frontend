@@ -64,5 +64,6 @@ deleteOffer(offer:any){
 }
 
 
+
 }
 

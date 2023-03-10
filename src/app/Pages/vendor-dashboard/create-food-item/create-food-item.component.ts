@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { FoodItemService } from 'src/app/Services/food-item.service';
 @Component({
   selector: 'app-create-food-item',
@@ -10,9 +12,9 @@ export class CreateFoodItemComponent implements OnInit{
 
 fooditemData:any[];
 
-constructor(private foodService: FoodItemService ){}
+constructor(private fs: FoodItemService, private router: Router ){}
 
-foodItemform: FormGroup;
+foodItemForm: FormGroup;
 foodName:FormControl;
 price: FormControl;
 description: FormControl;
@@ -22,7 +24,7 @@ ngOnInit(){
   this.createForm();
 }
 createForm() {
-  this.foodItemform = new FormGroup({
+  this.foodItemForm = new FormGroup({
     foodName:this.foodName,
     price:this.price,
     description:this.description,
@@ -37,6 +39,7 @@ createFormControls() {
 
 createFoodItem(){
   console.log()
-  this.foodService.createFoodItem(this.foodItemform.value)
+  this.fs.createFoodItem(this.foodItemForm.value)
+  this.router.navigate(['/vendor-dashboard/id:'])
 }
 }
