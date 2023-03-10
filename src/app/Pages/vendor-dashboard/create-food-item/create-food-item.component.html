@@ -6,14 +6,8 @@
 
 
 <div class="createFoodItem">
-  <form (ngSubmit)="createFoodItem()"[formGroup]= "foodItemform">
+  <form (submit)="createFoodItem()" [formGroup]= "foodItemForm">
   <div class="col-xs-12">
-    <div class="row">
-      <div class="col-xs-12">
-        <button type="submit" class="btn btn-success">Save</button>
-        <button routerLink="/vendor-dashboard/id:" class="btn btn-danger">Back to Dashboard</button>
-      </div>
-    </div>
     <div class="row">
       <div class="col-xs-12">
         <div class="form-group">
@@ -51,6 +45,14 @@
           ></textarea>
         </div>
       </div>
+    </div>
+    <div>
+      <br>
+      <button type="submit" class="btn btn-success">Submit</button>
+      <button [routerLink]="['/vendor-dashboard', id]" class="btn btn-danger">Cancel</button>
+      <br>
+    </div>
+    <hr />
   </div>
-  <hr />
+  </form>
 </div>

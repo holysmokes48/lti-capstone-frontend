@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { OfferService } from 'src/app/Services/offer.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-offers',
@@ -6,5 +9,40 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-offers.component.css']
 })
 export class EditOffersComponent {
+  offerId: number;
+  vendorId: number;
+  offerForm: FormGroup;
+  discount: FormControl;
+  offerDescription: FormControl;
 
+  constructor(private route: ActivatedRoute, private os: OfferService, private router: Router) {
+
+  }
+  
+  ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.offerId=this.route.snapshot.params["offerId"];
+      this.vendorId=this.route.snapshot.params["vendorId"];
+    });
+    this.createFormControls();
+    this.createForm();
+  }
+
+  createForm() {
+    this.offerForm = new FormGroup({
+      discount:this.discount,
+      offerDescription:this.offerDescription,
+    })
+  }
+
+  createFormControls() {
+    this.discount = new FormControl('', Validators.required);
+    this.offerDescription = new FormControl('', Validators.required);
+  }
+
+  updateOffer() {
+    this.offerForm.value.offerId = this.offerId
+    this.os.updateOffer(this.offerForm.value);
+    this.router.navigate(['/vendor-dashboard', this.vendorId])
+  }
 }

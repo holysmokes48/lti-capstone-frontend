@@ -4,36 +4,45 @@
   </div>
 </header>
 
-<ng-container>
-  <div class="container">
-    <div class="food-table">
-      <div class="food-items">
-        <table class="table table-responsive">
-          <thead>
-            <tr>
-              <th>Food Item</th>
-              <th>Discount</th>
-              <th>Description</th>
-              <th>Confirm Edit</th>
-            </tr>
-          </thead>
-          <tbody>
-              <tr>
-                <td>pizza</td>
-                <td>30%</td>
-                <td>30% off all pizzas</td>
-                <td>
-                  <button type="button" class="btn btn-success">Submit </button>
-              </td>
-              </tr>
-            </tbody>
-        </table>
+<div>
+  <form (submit)="updateOffer()" [formGroup]= "offerForm">
+  <div class="col-xs-12">
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <label for="discount">Discount %</label>
+          <input
+            type="text"
+            formControlName="discount"
+            class="form-control"
+          />
+        </div>
       </div>
     </div>
-  </div>
-  </ng-container>
-      <div class="text-center">
-          
-            <button routerLink="/vendor-dashboard" class="btn btn-danger">Back to Dashboard</button>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <label for="offerDescription">Description</label>
+          <textarea
+            type="text"
+            class="form-control"
+            formControlName="offerDescription"
+            rows="6"
+          ></textarea>
         </div>
-  
+      </div>
+    </div>
+    
+    <div>
+      <br>
+      <button type="submit" class="btn btn-success">Submit</button>
+      <button [routerLink]="['/vendor-dashboard', vendorId]" class="btn btn-danger">Cancel</button>
+      <br>
+    </div>
+    
+  </div>
+  </form>
+  <hr/>
+</div>

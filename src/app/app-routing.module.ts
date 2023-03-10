@@ -16,14 +16,14 @@ const routes: Routes = [
       import('./Pages/admin-dashboard/admin.module').then((m) => m.AdminModule),
   },
   {
-    path: 'create-food-item',
+    path: 'create-food-item/:id',
     loadChildren: () =>
       import('./Pages/vendor-dashboard/create-food-item/create-food-item.module').then(
         (m) => m.CreateFoodItemModule
       ),
   },
   {
-    path: 'edit-food-item',
+    path: 'edit-food-item/:foodId/:vendorId',
     loadChildren: () =>
       import('./Pages/vendor-dashboard/edit-food-item/edit-food-item.module').then(
         (m) => m.EditFoodItemModule
@@ -99,7 +99,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'edit-offers',
+    path: 'edit-offers/:offerId/:vendorId',
     loadChildren: () =>
       import('./Pages/vendor-dashboard/edit-offers/edit-offers.module').then(
         (m) => m.EditOffersModule
