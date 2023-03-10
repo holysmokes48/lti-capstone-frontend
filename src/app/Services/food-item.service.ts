@@ -18,7 +18,7 @@ export class FoodItemService {
   createFoodItem(data:any) {
     
     this.foodItemData.push(data)
-    this.httpService.post('/createFoodItem',data)
+    this.httpService.post('/createFoodItems',data)
     .subscribe((data) =>{
       console.log(data);
 
