@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HttpgeneralService } from './httpgeneral.service';
+import { HttpGeneralService } from './httpgeneral.service';
 
 describe('HttpgeneralService', () => {
-  let service: HttpgeneralService;
+  let service: HttpGeneralService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(HttpgeneralService);
+    service = TestBed.inject(HttpGeneralService);
   });
 
   it('should be created', () => {
