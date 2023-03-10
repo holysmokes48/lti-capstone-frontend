@@ -41,7 +41,8 @@
   </div>
   </ng-container>
       <div class="text-center">
-        <a [routerLink]="['/create-food-item', id]">
+        <!-- <a [routerLink]="['/create-food-item', id]"> -->
+          <a [routerLink]="['/create-food-item']">
           <button class="btn btn-success">Create Food Item</button>
         </a>
       </div>
@@ -81,7 +82,7 @@
             </div>
           </div>
           </ng-container>
-          <div>
+          <div class="text-center">
             <a [routerLink]="['/create-offers', id]">
               <button class="btn btn-success">Create Offer</button>
             </a>
