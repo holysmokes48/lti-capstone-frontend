@@ -214,7 +214,7 @@
                         </h2>
                       </td>
                     </tr>
-                    <tr  *ngFor="let vendor of vendorData; let i= index">
+                    <tr >
                       <td
                         align="left"
                         style="
@@ -234,7 +234,7 @@
                             text-align: center;
                           "
                         >
-                          Your order at {{vendor.vendorName}} has been placed!
+                          Your order at {{vendorData.vendorName}} in {{vendorData.vendorLocation}} has been placed!
                         </p>
                       </td>
                     </tr>
@@ -291,7 +291,7 @@
                                 padding: 15px 10px 5px 10px;
                               "
                             >
-                              Subtotal
+                              Subtotal:
                             </td>
                             <td
                               width="25%"
@@ -305,7 +305,7 @@
                                 padding: 15px 10px 5px 10px;
                               "
                             >
-                              ${{getSubtotal()}}
+                              ${{subtotal}}
                             </td>
                           </tr>
                           <tr>
@@ -335,7 +335,7 @@
                                 padding: 5px 10px;
                               "
                             >
-                              ${{getAppliedOffer()}}                            
+                              {{discount}}% off                          
                             </td>
                           </tr>
                         </table>
@@ -380,7 +380,7 @@
                                 border-bottom: 3px solid #eeeeee;
                               "
                             >
-                              ${{getGrandTotal()}}
+                              ${{grandTotal}}
                             </td>
                           </tr>
                         </table>
@@ -479,13 +479,13 @@
                         <table border="0" cellspacing="0" cellpadding="0">
                           <tr>
                             <td align="center">
-                              <a routerLink="/user-dashboard">
+                              <a [routerLink]="['/shopping-cart', id]">
                                 <button
                                   type="button"
                                   class="btn btn-outline-primary"
                                   data-mdb-ripple-color="dark"
                                 >
-                                  <h2>Back to Dashboard</h2>
+                                  <h2>Back to Cart</h2>
                                 </button>
                               </a>
                               <a routerLink="/feedback">
