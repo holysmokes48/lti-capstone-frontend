@@ -18,7 +18,6 @@ import { HomeComponent } from './Pages/home/home.component';
 import { EditFoodItemComponent } from './Pages/vendor-dashboard/edit-food-item/edit-food-item.component';
 import { CreateFoodItemComponent } from './Pages/vendor-dashboard/create-food-item/create-food-item.component';
 import { FooterComponent } from './Components/footer/footer.component';
-import { OffersComponent } from './Pages/offers/offers.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { VendorRegisterComponent } from './pages/vendor-register/vendor-register.component';
@@ -47,7 +46,6 @@ import { EditOffersComponent } from './Pages/vendor-dashboard/edit-offers/edit-o
     CreateFoodItemComponent,
     EditFoodItemComponent,
     FooterComponent,
-    OffersComponent,
     VendorRegisterComponent,
     OfferComponent,
     CreateOffersComponent,
