@@ -3,7 +3,6 @@ import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
 import { FoodItemService } from 'src/app/Services/food-item.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { OfferService } from 'src/app/Services/offer.service';
-import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -61,6 +60,5 @@ export class ShoppingCartComponent implements OnInit{
     let myDiscount : number = + this.discount;
     console.log(this.discount.discount);
     this._router.navigate(['/order-confirmation', this.id, this.discount.discount]);
-    //this._router.navigate(['/order-confirmation/1/50']);
   }
 }

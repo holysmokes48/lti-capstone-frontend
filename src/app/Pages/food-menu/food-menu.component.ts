@@ -50,10 +50,8 @@ export class FoodMenuComponent implements OnInit {
     this.sc.addToCart(item)
   }
 
-
-
-removeItem(fooditem:any){
-  this.fis.deleteFoodItemById(fooditem)
-}
+  removeItem(fooditem:any){
+    this.fis.deleteFoodItemById(fooditem)
+  }
 
 }

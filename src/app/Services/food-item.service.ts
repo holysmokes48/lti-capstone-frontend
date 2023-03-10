@@ -18,16 +18,18 @@ export class FoodItemService {
   createFoodItem(data:any) {
     
     this.foodItemData.push(data)
-    this.httpService.post('/createFoodItem',data)
+    this.httpService.post('/createFoodItems',data)
     .subscribe((data) =>{
       console.log(data);
 
     })
     
   }
+
   getFoodItemById(id: number) {
     return this.httpService.get(`/getFoodItemById/${id}}`)
   }
+
   updateFoodItem(data: any) {
     this.foodItemData.push(data)
     this.httpService.put('/updateFoodItem', data)
@@ -35,12 +37,14 @@ export class FoodItemService {
       console.log(data);
     })
   }
+
   deleteFoodItemById(id: number) {
     return this.httpService.delete(`/deleteFoodItemById/${id}`)
   }
+  
   //returns by a list
   getFoodByVendorId(id: number) {
-    return this.httpService.get(`/findfood/${id}`)
+    return this.httpService.get(`/findFood/${id}`)
   }
 
   /*
