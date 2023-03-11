@@ -26,7 +26,7 @@ ngOnInit(){
       this.vendorInfo= JSON.parse(JSON.stringify(response))
     });
   });
-  //this.loadFoodItems();
+  this.loadFoodItems();
   this.loadOffers();
 }
 

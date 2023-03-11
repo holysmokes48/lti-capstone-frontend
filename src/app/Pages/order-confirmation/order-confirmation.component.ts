@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
-import { FoodItemService } from 'src/app/Services/food-item.service';
-import { OfferService } from 'src/app/Services/offer.service';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { VendorService } from 'src/app/Services/vendor.service';
 import { DatePipe } from '@angular/common';
 
@@ -21,7 +19,8 @@ export class OrderConfirmationComponent {
   discount:number;
   subtotal:any;
 
-  constructor(private cs: ShoppingCartService, private fis :FoodItemService, private os: OfferService, private vs: VendorService, private route: ActivatedRoute, private datepipe: DatePipe,
+  constructor(private cs: ShoppingCartService,  private vs: VendorService, 
+    private route: ActivatedRoute, private datepipe: DatePipe
     ) {
      this.currentDateTime =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm')
     }

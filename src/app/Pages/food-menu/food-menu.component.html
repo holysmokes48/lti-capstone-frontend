@@ -35,7 +35,7 @@
         <a routerLink="/user-dashboard">
             <button class="btn btn-warning">Back to Dashboard</button>
         </a>
-        <a [routerLink]="['/shopping-cart', id]">
+        <a [routerLink]="['/shopping-cart', id]" *ngIf="isAuthenticated">
             <button class="btn btn-primary">Go to Cart</button>
         </a>
         

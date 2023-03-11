@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/Services/auth.service';
 import { UserService } from 'src/app/Services/user.service';
 import { VendorService } from 'src/app/Services/vendor.service';
 
@@ -13,7 +14,7 @@ export class LoginComponent {
   userData: any;
   vendor: any;
 
-  constructor(private us: UserService, private vs: VendorService, private _router: Router) {
+  constructor(private us: UserService, private vs: VendorService, private as: AuthService, private _router: Router) {
 
   }
   
@@ -43,6 +44,7 @@ export class LoginComponent {
       this.userData = JSON.parse(JSON.stringify(response));
       if(this.userData['type'].match(/^User$/)) {
         this._router.navigate(['/user-dashboard']);
+        this.as.authenticate(true);
       }
       else if(this.userData['type'].match(/^Admin$/)) {
         this._router.navigate(['/admin-dashboard']);
