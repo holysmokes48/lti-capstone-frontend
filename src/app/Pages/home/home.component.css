@@ -1,31 +1,22 @@
 .container {
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    padding: 3%;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 3%;
 }
 
-.carousel {
-    width: 100%;
-    height: auto;
-    padding: 5%;
+.container-img {
+  justify-content: center;
+  width: 100%;
+  padding: 3%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 button {
-    margin: 5px;
+  margin: 5px;
 }
 
 .page-header {
-    padding: 5%;
-}
-
-.carouselExampleInterval {
-    align-items: center;
-    justify-content: center;
-}
-
-.carousel-inner {
-    height: 400px;
-    width: 75%;
-
+  padding: 5%;
 }
