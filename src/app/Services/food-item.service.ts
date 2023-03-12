@@ -18,11 +18,7 @@ export class FoodItemService {
   createFoodItem(data:any) {
     
     this.foodItemData.push(data)
-    this.httpService.post('/createFoodItems',data)
-    .subscribe((data) =>{
-      console.log(data);
-
-    })
+    return this.httpService.post('/createFoodItems',data)
     
   }
 
@@ -32,10 +28,7 @@ export class FoodItemService {
 
   updateFoodItem(data: any) {
     this.foodItemData.push(data)
-    this.httpService.put('/updateFoodItem', data)
-    .subscribe((data) =>{
-      console.log(data);
-    })
+    return this.httpService.put('/updateFoodItem', data)
   }
 
   deleteFoodItemById(id: number) {

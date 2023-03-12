@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/Services/auth.service';
 import { FeedbackService } from 'src/app/Services/feedback.service';
+import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
 
 @Component({
   selector: 'app-feedback',
@@ -12,7 +14,8 @@ export class FeedbackComponent implements OnInit {
 
   feedbackData: any[];
 
-  constructor(private fs: FeedbackService) { }
+  constructor(private fs: FeedbackService, private as: AuthService, private cs: ShoppingCartService,
+    private router: Router) { }
 
   feedbackform: FormGroup;
   rating: FormControl;
@@ -22,6 +25,8 @@ export class FeedbackComponent implements OnInit {
   ngOnInit() { 
     this.createFormControls();
     this.createForm();
+    this.as.authenticate(false);
+    this.cs.removeAllCart();
   }
 
   createForm() {
@@ -51,5 +56,8 @@ export class FeedbackComponent implements OnInit {
     })
   }
 
-
+  returnToDashboard() {
+    this.as.authenticate(true);
+    this.router.navigate(['/user-dashboard'])
+  }
 }

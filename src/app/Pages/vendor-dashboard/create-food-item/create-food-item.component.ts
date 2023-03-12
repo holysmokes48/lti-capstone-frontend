@@ -42,7 +42,8 @@ createFormControls() {
 createFoodItem(){
   console.log()
   this.foodItemForm.value.vendorId = this.id;
-  this.fs.createFoodItem(this.foodItemForm.value)
-  this.router.navigate(['/vendor-dashboard', this.id])
+  this.fs.createFoodItem(this.foodItemForm.value).subscribe((response) => {
+    this.router.navigate(['/vendor-dashboard', this.id])
+  })
 }
 }

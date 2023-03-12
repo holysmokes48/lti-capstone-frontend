@@ -2,8 +2,12 @@
     <div class="overlay">
         <header>
             <!-- Jumbotron -->
-            <div class="p-5 text-center bg-secondary">
-              <h1 class="mb-8">Shopping Cart</h1>
+            <div class="p-3 text-center bg-light" *ngIf="!isAuthenticated">
+              <h1 class="mb-1">Shopping Cart</h1>
+            </div>
+            <div class="p-3 text-center bg-light" *ngIf="isAuthenticated">
+              <h1 class="mb-1">{{vendorData.vendorName}}</h1>
+              <h4>{{vendorData.vendorLocation}}</h4>
             </div>
             <!-- Jumbotron -->
           </header>
@@ -60,10 +64,13 @@
           </div>
           <br>
           <div class ="d-flex justify-content-center">
-            <a [routerLink]="['/food-menu', id]">
+            <a [routerLink]="['/user-dashboard']" *ngIf="!isAuthenticated">
+              <button type="button" class="btn btn-primary">Back to Dashboard</button>
+            </a>
+            <a [routerLink]="['/food-menu', id]" *ngIf="isAuthenticated">
               <button type="button" class="btn btn-primary">Back to Menu</button>
             </a>
-            <a>
+            <a *ngIf="!empty">
               <button type="button" class="btn btn-success" (click)="confirmOrder()">Submit Order</button>
             </a>  
           </div>

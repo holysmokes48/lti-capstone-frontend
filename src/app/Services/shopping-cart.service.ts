@@ -8,8 +8,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ShoppingCartService {
 
-  public cartItemList =[{foodId: 2, foodName: "burer", description: "awefawe", price: 10}];
-  public productList = new BehaviorSubject<any>([{foodId: 2, foodName: "burer", description: "awefawe", price: 10}]);
+  public cartItemList =[];
+  public productList = new BehaviorSubject<any>([]);
 
   constructor(private http: HttpClient, private fis: FoodItemService) {}
   
@@ -23,8 +23,12 @@ export class ShoppingCartService {
   }
 
   addToCart(product: any) {
+    if(this.cartItemList.length != 0 && this.cartItemList[0].vendorId != product.vendorId) {
+      return false;
+    }
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
+    return true;
     //this.getTotalPrice();
   }
 
