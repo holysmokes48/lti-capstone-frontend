@@ -6,7 +6,7 @@ form {
 }
 input,
 textarea {
-  width: 130%;
+  width: 100%;
 }
 
 .form-outline {

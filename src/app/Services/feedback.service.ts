@@ -24,6 +24,10 @@ export class FeedbackService {
     })
   }
 
+  deleteFeedback(id: number){
+    return this.httpService.delete(`/deleteFeedbackById/${id}`);
+  }
+
   /*
 
   getAllFeedback(){

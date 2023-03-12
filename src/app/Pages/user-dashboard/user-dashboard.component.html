@@ -9,8 +9,8 @@
         <table class="table table-responsive">
             <thead>
                 <tr>
-                    <th style="text-align: center">Vendor Id</th>
-                    <th style="text-align: center">Vendor Image</th>
+                    <!-- <th style="text-align: center">Vendor Id</th> -->
+                    <th style="text-align: center"></th>
                     <th style="text-align: center">Vendor Name</th>
                     <th style="text-align: center">Vendor Location</th>
                     <th style="text-align: center">Action</th>
@@ -18,7 +18,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let vendor of vendorList; let i= index">
-                    <th scope = "row" style="text-align: center">{{i+1}}</th>
+                    <!-- <th scope = "row" style="text-align: center">{{i+1}}</th> -->
                     <td style="text-align: center"><img src="https://static.thenounproject.com/png/1478906-200.png" alt="Vendor Icon" width="30" height="30"></td>
                     <td style="text-align: center">{{vendor.vendorName}}</td>
                     <td style="text-align: center">{{vendor.vendorLocation}}</td>
