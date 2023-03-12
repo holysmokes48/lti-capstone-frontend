@@ -22,7 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { VendorRegisterComponent } from './pages/vendor-register/vendor-register.component';
 import { OfferComponent } from './Pages/shopping-cart/offer/offer.component';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HttpGeneralService } from './shared/http-service/httpgeneral.service';
 import { CreateOffersComponent } from './Pages/vendor-dashboard/create-offers/create-offers.component';
 import { EditOffersComponent } from './Pages/vendor-dashboard/edit-offers/edit-offers.component';
@@ -56,7 +56,8 @@ import { EditOffersComponent } from './Pages/vendor-dashboard/edit-offers/edit-o
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [DatePipe, HttpGeneralService],
   bootstrap: [AppComponent]

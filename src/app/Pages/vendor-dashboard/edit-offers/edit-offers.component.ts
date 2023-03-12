@@ -42,7 +42,8 @@ export class EditOffersComponent {
 
   updateOffer() {
     this.offerForm.value.offerId = this.offerId
-    this.os.updateOffer(this.offerForm.value);
-    this.router.navigate(['/vendor-dashboard', this.vendorId])
+    this.os.updateOffer(this.offerForm.value).subscribe((response) => {
+      this.router.navigate(['/vendor-dashboard', this.vendorId])
+    });
   }
 }

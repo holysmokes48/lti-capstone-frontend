@@ -26,10 +26,7 @@ export class OfferService {
 
   updateOffer(data:any){
     this.offerData.push(data)
-    this.httpService.put('/updateOffer',data)
-    .subscribe((data) =>{
-      console.log(data);
-    })
+    return this.httpService.put('/updateOffer',data)
   }
 
   deleteOffer(id: number){

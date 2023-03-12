@@ -1,4 +1,28 @@
 <div class="container">
+<<<<<<< HEAD
+    <div class="overlay">
+      <header>
+        <div class="p-3 text-center bg-light">
+          <h1 class="mb-3">Feedback </h1>
+        </div>
+      </header>      
+    </div>
+    <div class="feedback">
+      <form (submit)="createFeedback()" [formGroup]="feedbackform">
+        <br /><br />
+        <h6>Rating (1-5):</h6>
+        <input formControlName="rating" type="number" style="height: 50px" /><br /><br /><br />
+        <h6>Feedback Description:</h6>
+        <input formControlName="description" type="text" style="height: 100px" /><br /><br />
+        <div class="text-center">
+          <!-- <a [routerLink]="['/user-dashboard']"> -->
+            <button type="submit" class="btn btn-success" (click)="returnToDashboard()">Submit Feedback</button>
+          <!-- </a> -->
+        </div>
+      </form>
+    </div>
+  </div>
+=======
   <div class="overlay">
     <header>
       <div class="p-2 text-center bg-light">
@@ -34,3 +58,4 @@
     </form>
   </div>
 </div>
+>>>>>>> bae9a35edf97811f293e1e3daf0817a6ac553924

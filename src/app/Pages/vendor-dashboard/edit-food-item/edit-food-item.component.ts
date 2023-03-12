@@ -49,8 +49,9 @@ export class EditFoodItemComponent {
     this.fooditem = this.editfoodItemForm.value;
     this.fooditem.foodId = this.foodId;
     this.fooditem.vendorId = this.vendorId;
-    this.fs.updateFoodItem(this.fooditem);
-    this.router.navigate(['/vendor-dashboard', this.vendorId])
+    this.fs.updateFoodItem(this.fooditem).subscribe((response) => {
+      this.router.navigate(['/vendor-dashboard', this.vendorId])
+    }); 
   }
 }
 
