@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +6,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
-
-  id:number;
-  constructor(private route: ActivatedRoute) {}
-  
-    ngOnInit() {
-      this.id=this.route.snapshot.params["id"];
-    }
-
+ 
+    ngOnInit() {}
 }
