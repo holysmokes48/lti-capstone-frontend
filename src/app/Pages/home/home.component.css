@@ -19,4 +19,13 @@ button {
     padding: 5%;
 }
 
+.carouselExampleInterval {
+    align-items: center;
+    justify-content: center;
+}
 
+.carousel-inner {
+    height: 400px;
+    width: 75%;
+
+}
