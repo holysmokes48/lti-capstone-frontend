@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Params } from 'react-router-dom';
-import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/Services/auth.service';
 import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
 

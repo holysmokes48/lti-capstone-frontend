@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params} from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { FoodItemService} from 'src/app/Services/food-item.service';
 import { OfferService } from 'src/app/Services/offer.service';
 import { VendorService } from 'src/app/Services/vendor.service';
@@ -10,7 +9,7 @@ import { VendorService } from 'src/app/Services/vendor.service';
   templateUrl: './vendor-dashboard.component.html',
   styleUrls: ['./vendor-dashboard.component.css']
 })
-export class VendorDashboardComponent implements OnInit{
+export class VendorDashboardComponent {
 offerData:any=[];
 foodItemData:any=[]
 id: number;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FoodItemService } from 'src/app/Services/food-item.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { VendorService } from 'src/app/Services/vendor.service';

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FeedbackService } from 'src/app/Services/feedback.service';
 import { VendorService } from 'src/app/Services/vendor.service';
 

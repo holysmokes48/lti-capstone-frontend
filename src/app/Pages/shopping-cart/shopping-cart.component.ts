@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
-import { FoodItemService } from 'src/app/Services/food-item.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OfferService } from 'src/app/Services/offer.service';
 import { VendorService } from 'src/app/Services/vendor.service';
@@ -10,7 +9,7 @@ import { VendorService } from 'src/app/Services/vendor.service';
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css']
 })
-export class ShoppingCartComponent implements OnInit{
+export class ShoppingCartComponent {
 
   public product: any = [];
   public grandTotal!: number; 
