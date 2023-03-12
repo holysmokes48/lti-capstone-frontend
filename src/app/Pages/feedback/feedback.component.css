@@ -2,11 +2,11 @@
   background-color: green;
 }
 form {
-  background-color: #f9f9ed;
+  background-color: #ffffff;
 }
 input,
 textarea {
-  width: 100%;
+  width: 130%;
 }
 
 .form-outline {
