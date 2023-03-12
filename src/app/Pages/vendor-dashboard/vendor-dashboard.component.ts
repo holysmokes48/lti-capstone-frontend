@@ -16,7 +16,7 @@ foodItemData:any=[]
 id: number;
 vendorInfo: any=[];
 
-constructor(private foodService: FoodItemService, private offerservice:OfferService,private router: Router,private route: ActivatedRoute,
+constructor(private foodService: FoodItemService, private offerservice:OfferService,private route: ActivatedRoute,
   private vendorService: VendorService){}
 
 ngOnInit(){ 
@@ -26,23 +26,24 @@ ngOnInit(){
       this.vendorInfo= JSON.parse(JSON.stringify(response))
     });
   });
-  this.loadFoodItems();
+  //this.loadFoodItems();
   this.loadOffers();
 }
 
 loadFoodItems(){
-  this.foodService.getAllloadFoodItem().subscribe((data) => {
+  this.foodService.getFoodByVendorId(this.id).subscribe((data) => {
     const locArray = [];
     for(let key in data){
       locArray.push(data[key]);
-        }
-        this.foodItemData= locArray
+    }
+    this.foodItemData= locArray
+    console.log(this.foodItemData);
   })
 }
 
 deleteFoodItem(foodItem:any){
   this.foodService.deleteFoodItemById(foodItem.foodId).subscribe((response) => {
-    this.loadFoodItems()
+    this.loadFoodItems();
   });
 }
 
@@ -51,8 +52,9 @@ loadOffers(){
     const locArray = [];
     for(let key in data){
       locArray.push(data[key]);
-        }
-        this.offerData= locArray
+    }
+    this.offerData= locArray
+    this.loadFoodItems();
   })
 }
 

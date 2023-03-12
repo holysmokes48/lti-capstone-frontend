@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { FoodItemService } from 'src/app/Services/food-item.service';
 @Component({
@@ -12,16 +12,18 @@ export class CreateFoodItemComponent implements OnInit{
 
 fooditemData:any[];
 
-constructor(private fs: FoodItemService, private router: Router ){}
+constructor(private fs: FoodItemService, private router: Router, private route: ActivatedRoute){}
 
 foodItemForm: FormGroup;
 foodName:FormControl;
 price: FormControl;
 description: FormControl;
+id: any;
 
 ngOnInit(){
   this.createFormControls();
   this.createForm();
+  this.id=this.route.snapshot.params["id"];
 }
 createForm() {
   this.foodItemForm = new FormGroup({
@@ -39,7 +41,8 @@ createFormControls() {
 
 createFoodItem(){
   console.log()
+  this.foodItemForm.value.vendorId = this.id;
   this.fs.createFoodItem(this.foodItemForm.value)
-  this.router.navigate(['/vendor-dashboard/id:'])
+  this.router.navigate(['/vendor-dashboard', this.id])
 }
 }

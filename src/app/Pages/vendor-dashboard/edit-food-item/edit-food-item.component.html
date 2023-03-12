@@ -1,21 +1,16 @@
-<!--
+
 
 <header>
   <div class="p-5 text-center bg-light">
-    <h1 class="mb-3">Create Food Item </h1>
+    <h1 class="mb-3">Edit Food Item </h1>
   </div>
 </header>
 
 
-<div class="updateFoodItem">
-  <form (submit)="updateFoodItem()"[formGroup]= "editfoodItemForm">
+<div>
+  <form (submit)="updateFoodItem()" [formGroup]= "editfoodItemForm">
   <div class="col-xs-12">
-    <div class="row">
-      <div class="col-xs-12">
-        <button type="submit" class="btn btn-success">Submit</button>
-        <button routerLink="/vendor-dashboard/id:" class="btn btn-danger">Cancel</button>
-      </div>
-    </div>
+
     <div class="row">
       <div class="col-xs-12">
         <div class="form-group">
@@ -28,6 +23,7 @@
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col-xs-12">
         <div class="form-group">
@@ -41,6 +37,7 @@
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col-xs-12">
         <div class="form-group">
@@ -53,48 +50,16 @@
           ></textarea>
         </div>
       </div>
-  </div>
-  <hr />
-</div>
-
--->
-
-
-
-<!-- <br>
-<ng-container>
-    <div class="container">
-      <div class="food-table">
-        <div class="food-items">
-          <table class="table table-responsive">
-            <thead>
-              <tr>
-                <th>Food Item</th>
-                <th>Price</th>
-                <th>Description</th>
-                <th>Confirm Edit</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr>
-                  <td>pizza</td>
-                  <td>$10</td>
-                  <td>pizza with chez</td>
-                  <td>
-                    <button type="button" class="btn btn-success">Submit </button>
-                </td>
-                </tr>
-              </tbody>
-          </table>
-        </div>
-      </div>
     </div>
-    </ng-container>
-        <div class="text-center">
-            
-              <button routerLink="/vendor-dashboard" class="btn btn-danger">Back to Dashboard</button>
-        </div>
-
- -->
-
-
+    
+    <div>
+      <br>
+      <button type="submit" class="btn btn-success">Submit</button>
+      <button [routerLink]="['/vendor-dashboard', vendorId]" class="btn btn-danger">Cancel</button>
+      <br>
+    </div>
+    
+  </div>
+  </form>
+  <hr/>
+</div>

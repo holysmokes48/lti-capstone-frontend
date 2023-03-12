@@ -29,7 +29,6 @@ export class OfferService {
     this.httpService.put('/updateOffer',data)
     .subscribe((data) =>{
       console.log(data);
-
     })
   }
 

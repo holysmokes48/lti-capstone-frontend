@@ -25,9 +25,11 @@ export class FoodItemService {
     })
     
   }
+
   getFoodItemById(id: number) {
     return this.httpService.get(`/getFoodItemById/${id}}`)
   }
+
   updateFoodItem(data: any) {
     this.foodItemData.push(data)
     this.httpService.put('/updateFoodItem', data)
@@ -35,12 +37,14 @@ export class FoodItemService {
       console.log(data);
     })
   }
+
   deleteFoodItemById(id: number) {
     return this.httpService.delete(`/deleteFoodItemById/${id}`)
   }
+  
   //returns by a list
   getFoodByVendorId(id: number) {
-    return this.httpService.get(`/findfood/${id}`)
+    return this.httpService.get(`/findFood/${id}`)
   }
 
   /*

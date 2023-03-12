@@ -60,10 +60,12 @@
           </div>
           <br>
           <div class ="d-flex justify-content-center">
-              <a [routerLink]="['/food-menu', id]">
-                <button type="button" class="btn btn-primary">Back to Food Menu</button>
-              </a>
+            <a [routerLink]="['/food-menu', id]">
+              <button type="button" class="btn btn-primary">Back to Menu</button>
+            </a>
+            <a>
               <button type="button" class="btn btn-success" (click)="confirmOrder()">Submit Order</button>
+            </a>  
           </div>
           <br>
     </div>
