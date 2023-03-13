@@ -25,29 +25,32 @@
       </div>
       <button
         class="btn btn-success d-flex justify-content-center"
-        style="width: 100%"
+        style="width: 98%"
         [disabled]="!loginform.valid"
+        type="submit"
       >
         Login
       </button>
+
+      <a
+      style="width: 100%"
+      class="d-flex justify-content-center"
+      routerLink="/register"
+    >
+      <button class="btn btn-primary">Register</button>
+    </a>
+  
+    <a
+      style="width: 100%"
+      class="d-flex justify-content-center"
+      routerLink="/forgot-password"
+    >
+      <button class="btn btn-warning">Forgot Password?</button>
+    </a>
     </div>
   </form>
 
-  <a
-    style="width: 100%"
-    class="d-flex justify-content-center"
-    routerLink="/register"
-  >
-    <button class="btn btn-primary">Register</button>
-  </a>
 
-  <a
-    style="width: 100%"
-    class="d-flex justify-content-center"
-    routerLink="/forgot-password"
-  >
-    <button class="btn btn-warning">Forgot Password?</button>
-  </a>
 
   <br />
   <br />
