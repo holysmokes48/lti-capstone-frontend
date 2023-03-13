@@ -8,7 +8,6 @@ import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-<<<<<<< HEAD
 export class HeaderComponent {
   ItemCount: number;
   isAuthenticated: boolean;
@@ -26,12 +25,4 @@ export class HeaderComponent {
     })
   }
 
-=======
-export class HeaderComponent implements OnInit{
-  id:number;
-  constructor(private route: ActivatedRoute ) {}
-  
-    ngOnInit() {
-}
->>>>>>> bae9a35edf97811f293e1e3daf0817a6ac553924
 }

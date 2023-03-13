@@ -52,6 +52,15 @@ export class AdminDashboardComponent implements OnInit {
     
   }
 
+  onDeleteFeedback(feedback) {
+    this.fs.deleteFeedback(feedback.feedbackId).subscribe(response=>{
+      console.log(response)
+      this.loadFeedbacks()
+    });
+    
+    
+  }
+
 
 }
 

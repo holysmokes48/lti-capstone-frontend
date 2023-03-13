@@ -2,13 +2,13 @@
   <div class="overlay">
     <header>
       <div class="p-2 text-center bg-light">
-        <h1 class="mb-2">Feedback</h1>
+        <h1 class="mb-2">Website Feedback</h1>
       </div>
     </header>
   </div>
   <div class="text-center">
     <form (submit)="createFeedback()" [formGroup]="feedbackform">
-      <br /><br />
+      <br />
       <h6>Rating (1-5):</h6>
       <input 
         formControlName="rating"
@@ -21,16 +21,20 @@
         type="text"
         style="height: 100px;width:500px"
         rows="6"
-      /><br /><br />
+      /><br />
       <!-- Submit button -->
       <!--    <button routerLink="/user-dashboard" type="submit" style="height:50px; width:px;" class="btn btn-success btn-block mb-4">
           <h5>Submit Feedback</h5>
         </button> -->
+        <br>
       <div class="text-center">
-        <a [routerLink]="['/user-dashboard']">
-          <button type="submit" class="btn btn-success">Submit Feedback</button>
-        </a>
+        
+          <button type="submit" class="btn btn-success" (click)="returnToDashboard()">Submit Feedback</button>
+        
       </div>
     </form>
+
+    <br>
   </div>
 </div>
+>>>>>>> bae9a35edf97811f293e1e3daf0817a6ac553924
