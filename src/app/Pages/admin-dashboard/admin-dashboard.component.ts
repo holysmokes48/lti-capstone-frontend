@@ -9,8 +9,9 @@ import { VendorService } from 'src/app/Services/vendor.service';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements OnInit {
-
+  //Feedback from users
   feedbackData: any[];
+  //Information of all Vendors
   vendorData: any[];
 
   constructor(private fs: FeedbackService, private vs: VendorService, private _router: Router) { }
@@ -21,6 +22,7 @@ export class AdminDashboardComponent implements OnInit {
     this.loadFeedbacks()
   }
 
+  //Get all Vendors
   loadVendors() {
     this.vs.getAllVendors().subscribe((data) => {
       const locArray = [];
@@ -31,7 +33,7 @@ export class AdminDashboardComponent implements OnInit {
     })
   }
 
-
+  //Get all Feedbacks
   loadFeedbacks() {
     this.fs.getAllFeedback().subscribe((data) => {
       const locArray = [];
@@ -42,11 +44,19 @@ export class AdminDashboardComponent implements OnInit {
     })
   }
   
-  
-  onDelete(vendor) {
+  //Delete Vendor and reload
+  onDeleteVendor(vendor) {
     this.vs.deleteVendorbyId(vendor.vendorId).subscribe(response=>{
       console.log(response)
       this.loadVendors()
+    });
+  }
+
+  //Delete Feedbacks and reload
+  onDeleteFeedback(feedback) {
+    this.fs.deleteFeedback(feedback.feedbackId).subscribe(response=>{
+      console.log(response)
+      this.loadFeedbacks()
     });
     
     
