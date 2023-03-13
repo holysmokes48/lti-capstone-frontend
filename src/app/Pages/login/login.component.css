@@ -4,17 +4,16 @@
   padding: 10px;
 }
 
-
 select,
-input, label {
+input,
+label {
   margin: 0px;
   width: 100%;
   padding: 10px;
 }
 
-.btn{
+.btn {
   margin: 5px;
   width: 50%;
   padding: 10px;
 }
-
