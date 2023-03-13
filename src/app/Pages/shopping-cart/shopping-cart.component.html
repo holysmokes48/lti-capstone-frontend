@@ -33,7 +33,7 @@
                   {{foodItem.description}}
                 </td>
                 <td>
-                  {{foodItem.price}}
+                  ${{foodItem.price}}
                 </td>
                 <td>
                   <button class="btn btn-danger" (click)="removeItem(foodItem)">
@@ -56,9 +56,9 @@
           <br>
           <h3 class="mb-3 text-center">Available Offers (% off)</h3>
           <div class="d-flex justify-content-center">
-            <select [(ngModel)]="discount">
+            <select [(ngModel)]="discount" style="width:25%; height:40px;">
               <option *ngFor="let offer of offers" [ngValue]="offer">
-                {{offer.discount}}
+              {{offer.discount}}% - {{offer.offerDescription}}
               </option>
             </select>
           </div>

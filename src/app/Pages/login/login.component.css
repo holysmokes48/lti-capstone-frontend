@@ -1,11 +1,19 @@
 .form-group {
   margin: 5px auto;
+  width: 52%;
+  padding: 10px;
 }
 
-.btn,
 select,
-input {
-  margin: 10px;
-  width: 50%;
+input,
+label {
+  margin: 0px;
+  width: 100%;
+  padding: 10px;
+}
+
+.btn {
+  margin: 5px;
+  width: 100%;
   padding: 10px;
 }

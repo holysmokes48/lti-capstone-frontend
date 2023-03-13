@@ -55,5 +55,9 @@ export class FoodMenuComponent {
     if(!ret) {
       alert("You can only order from one restaurant at a time");
     }
+
+    else {
+      alert(item.foodName + " added to cart")
+    }
   }
 }

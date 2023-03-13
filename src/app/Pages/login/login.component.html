@@ -21,19 +21,37 @@
         formControlName="password"
       />
       <div *ngIf="loginform.controls['password'].invalid">
-        <p align="right">
-          Password must be length of 6 or more
-        </p>
+        <p align="right">Password must be length of 6 or more</p>
       </div>
-      <button class="btn btn-success" style [disabled]="!loginform.valid">Login</button>
+      <button
+        class="btn btn-success d-flex justify-content-center"
+        style="width: 98%"
+        [disabled]="!loginform.valid"
+        type="submit"
+      >
+        Login
+      </button>
+
+      <a
+      style="width: 100%"
+      class="d-flex justify-content-center"
+      routerLink="/register"
+    >
+      <button class="btn btn-primary">Register</button>
+    </a>
+  
+    <a
+      style="width: 100%"
+      class="d-flex justify-content-center"
+      routerLink="/forgot-password"
+    >
+      <button class="btn btn-warning">Forgot Password?</button>
+    </a>
     </div>
   </form>
-  <a routerLink="/register">
-    <button class="btn btn-primary">Register</button>
-  </a>
-  <a routerLink = "/forgot-password">
-    <button class="btn btn-warning">Forgot Password?</button>
-  </a>
-  <br>
-  <br>
+
+
+
+  <br />
+  <br />
 </div>
