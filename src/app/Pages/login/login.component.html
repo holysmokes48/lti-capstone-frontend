@@ -25,15 +25,19 @@
           Password must be length of 6 or more
         </p>
       </div>
-      <button class="btn btn-success" style [disabled]="!loginform.valid">Login</button>
+      <button class="btn btn-success d-flex justify-content-center" style="width:100%" [disabled]="!loginform.valid">Login</button>
     </div>
   </form>
-  <a routerLink="/register">
-    <button class="btn btn-primary">Register</button>
-  </a>
-  <a routerLink = "/forgot-password">
-    <button class="btn btn-warning">Forgot Password?</button>
-  </a>
+
+    <a style="width:100%" class="d-flex justify-content-center"routerLink="/register">
+      <button class="btn btn-primary" >Register</button>
+    </a>
+
+    <a  style="width:100%" class="d-flex justify-content-center"routerLink = "/forgot-password">
+      <button class="btn btn-warning">Forgot Password?</button>
+    </a>
+
+
   <br>
   <br>
 </div>
