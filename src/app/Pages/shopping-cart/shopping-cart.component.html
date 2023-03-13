@@ -58,7 +58,7 @@
           <div class="d-flex justify-content-center">
             <select [(ngModel)]="discount" style="width:25%; height:40px;">
               <option *ngFor="let offer of offers" [ngValue]="offer">
-               {{offer.offerDescription}}
+              {{offer.discount}}% - {{offer.offerDescription}}
               </option>
             </select>
           </div>
