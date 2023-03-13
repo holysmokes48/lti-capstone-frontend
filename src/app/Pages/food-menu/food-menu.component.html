@@ -1,57 +1,69 @@
-
 <header>
-    <div class="p-3 text-center bg-light">
-      <h1 class="mb-1">{{vendorInfo.vendorName}}</h1>
-      <h4>Location: {{vendorInfo.vendorLocation}}</h4>
-    </div>
+  <div class="p-3 text-center bg-light">
+    <h1 class="mb-1">{{ vendorInfo.vendorName }} Menu</h1>
+    <h4>Location: {{ vendorInfo.vendorLocation }}</h4>
+  </div>
 </header>
 
 <ng-container>
-    <div class="container">
-        <table class="table table-responsive">
-            <thead>
-                <tr>
-                    <!-- <th style="text-align: center">Food ID</th> -->
-                    <th style="text-align: center"></th>
-                    <th style="text-align: center">Food Name</th>
-                    <th style="text-align: center">Description</th>
-                    <th style="text-align: center">Price</th>
-                    <th style="text-align: center">Action</th>
-                    <!-- <th scope="col">Food ID</th>
+  <div class="container">
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <!-- <th style="text-align: center">Food ID</th> -->
+          <th style="text-align: center"></th>
+          <th style="text-align: center">Food Name</th>
+          <th style="text-align: center">Description</th>
+          <th style="text-align: center">Price</th>
+          <th style="text-align: center">Action</th>
+          <!-- <th scope="col">Food ID</th>
                     <th scope="col">Food Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Food Price</th>
                     <th scope="col">Action</th> -->
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let food of fooditem; let i= index">
-                    <!-- <th scope = "row" style="text-align: center">{{i+1}}</th> -->
-                    <td style="text-align: center"><img src="https://cdn-icons-png.flaticon.com/128/9844/9844852.png" alt="Food Icon" width="30" height="30"></td>
-                    <td style="text-align: center">{{food.foodName}}</td>
-                    <td style="text-align: center">{{food.description}}</td>
-                    <td style="text-align: center">${{food.price}}</td>
-                    <td style="text-align: center">
-                        <button type="button" class="btn btn-success" (click)="addToCart(food)">Add</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <br>
-    <div class="d-flex justify-content-center">
-        <a routerLink="/user-dashboard">
-            <button class="btn btn-warning">Back to Dashboard</button>
-        </a>
-        <a [routerLink]="['/shopping-cart', id]">
-            <button class="btn btn-primary">Go to Cart</button>
-        </a>
-        
-        <!-- <button class="btn btn-danger">Back to Dashboard</button>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let food of fooditem; let i = index">
+          <!-- <th scope = "row" style="text-align: center">{{i+1}}</th> -->
+          <td style="text-align: center">
+            <img
+              src="https://cdn-icons-png.flaticon.com/128/9844/9844852.png"
+              alt="Food Icon"
+              width="30"
+              height="30"
+            />
+          </td>
+          <td style="text-align: center">{{ food.foodName }}</td>
+          <td style="text-align: center">{{ food.description }}</td>
+          <td style="text-align: center">${{ food.price }}</td>
+          <td style="text-align: center">
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="addToCart(food)"
+            >
+              Add
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br />
+  <div class="d-flex justify-content-center">
+    <a routerLink="/user-dashboard">
+      <button class="btn btn-warning">Back to Dashboard</button>
+    </a>
+    <a [routerLink]="['/shopping-cart', id]">
+      <button class="btn btn-primary">Go to Cart</button>
+    </a>
+
+    <!-- <button class="btn btn-danger">Back to Dashboard</button>
         <button class="btn btn-primary" onclick="loginUser()">Go to Cart</button> -->
-    </div>
-    <br>
-    <br>
+  </div>
+  <br />
+  <br />
 </ng-container>
 
 <!-- 
