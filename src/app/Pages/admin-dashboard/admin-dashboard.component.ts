@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FeedbackService } from 'src/app/Services/feedback.service';
 import { VendorService } from 'src/app/Services/vendor.service';
@@ -8,14 +8,13 @@ import { VendorService } from 'src/app/Services/vendor.service';
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.css']
 })
-export class AdminDashboardComponent implements OnInit {
+export class AdminDashboardComponent {
   //Feedback from users
   feedbackData: any[];
   //Information of all Vendors
   vendorData: any[];
 
   constructor(private fs: FeedbackService, private vs: VendorService, private _router: Router) { }
-
 
   ngOnInit() { 
     this.loadVendors()
@@ -58,10 +57,7 @@ export class AdminDashboardComponent implements OnInit {
       console.log(response)
       this.loadFeedbacks()
     });
-    
-    
   }
-
 
 }
 

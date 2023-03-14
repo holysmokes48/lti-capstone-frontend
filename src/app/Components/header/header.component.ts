@@ -11,17 +11,20 @@ import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
 export class HeaderComponent {
   //Number of items in Shopping Cart
   ItemCount: number;
-  //Whether or not to show
+  //Whether or not to show Shopping Cart icon
   isAuthenticated: boolean;
+  //Vendor id
   id: number;
 
   constructor(private cs: ShoppingCartService, private as: AuthService, private route: ActivatedRoute) {}
   
   ngOnInit() {
+    //Get Item Count
     this.cs.getProducts().subscribe((response) => {
       this.ItemCount = response.length;
     });
     
+    //Get Shopping Cart Authentication for user type User
     this.as.auth_update.subscribe((response) => {
       this.isAuthenticated = response;
     })
