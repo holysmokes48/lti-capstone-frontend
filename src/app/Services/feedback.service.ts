@@ -12,16 +12,12 @@ export class FeedbackService {
   feedbackData: FormData[]=[]
 
   getAllFeedback(){
-    return this.httpService.get('/getAllFeedbacks')
+    return this.httpService.get('/getAllFeedbacks');
   }
 
   createFeedback(data:any){
-    this.feedbackData.push(data)
-    this.httpService.post('/createFeedback',data)
-    .subscribe((data) =>{
-      console.log(data);
-
-    })
+    this.feedbackData.push(data);
+    return this.httpService.post('/createFeedback',data);
   }
 
   deleteFeedback(id: number){

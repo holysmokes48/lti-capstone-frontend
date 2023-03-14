@@ -1,9 +1,13 @@
 <div className='container'>
     <div>
+        <!-- title of page-->
         <div class="p-5 text-center bg-light">
             <h2 class="mb-2">Admin Dashboard </h2>
         </div>
+
+        <!-- table of registered vendors -->
         <h4 class="mb-3 text-center">Registered Vendors</h4>
+
         <div>
             <table class="table">
                 <thead>
@@ -20,26 +24,28 @@
                         <td>{{vendor.vendorName}}</td>
                         <td>{{vendor.vendorLocation}}</td>
                         <td>
-                            <!-- <button type="button" class="btn btn-info">View</button> -->
-                            <!-- <button type="button" class="btn btn-success">Enable</button> -->
-                            <button type="button" class="btn btn-danger" (click)="onDelete(vendor)">Delete</button>
+                            <button type="button" class="btn btn-danger" (click)="onDeleteVendor(vendor)">Delete</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
     </div>
+
     <br>
     <br>
     <br>
+
     <div>
-        <!-- <div class="d-flex p-2 justify-content-center">FeedBack</div> -->
+
+        <!-- table of website feedbacks from users -->
         <h4 class="mb-3 text-center">Feedbacks</h4>
+
         <div class="d-flex justify-content-center">
             <table class="table" style="text-align:center; width:40%;">
                 <thead>
                     <tr>
-                        <!-- <th scope="col">Feedback ID</th> -->
                         <th scope="col">Ratings</th>
                         <th scope="col">Description</th>
                         <th scope="col">Action</th>
@@ -47,7 +53,6 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let feedback of feedbackData; let i= index">
-                        <!-- <th scope = "row">{{i+1}}</th> -->
                         <td>{{feedback.rating}}</td>
                         <td>{{feedback.description}}</td>
                         <td><button type="button" class="btn btn-danger" (click)="onDeleteFeedback(feedback)">Delete</button></td>
@@ -55,5 +60,6 @@
                 </tbody>
             </table>
         </div>
+
     </div>
 </div>
