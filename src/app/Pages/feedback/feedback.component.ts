@@ -43,7 +43,10 @@ export class FeedbackComponent implements OnInit {
 
   createFeedback(){
     console.log();
-    this.fs.createFeedback(this.feedbackform.value);
+    this.fs.createFeedback(this.feedbackform.value).subscribe((response)=>{
+      this.as.authenticate(true);
+      this.router.navigate(['/user-dashboard'])
+    })
   }
 
   loadFeedbacks() {
@@ -56,8 +59,5 @@ export class FeedbackComponent implements OnInit {
     })
   }
 
-  returnToDashboard() {
-    this.as.authenticate(true);
-    this.router.navigate(['/user-dashboard'])
-  }
+  
 }

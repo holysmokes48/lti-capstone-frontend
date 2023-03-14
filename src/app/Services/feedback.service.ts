@@ -17,11 +17,9 @@ export class FeedbackService {
 
   createFeedback(data:any){
     this.feedbackData.push(data)
-    this.httpService.post('/createFeedback',data)
-    .subscribe((data) =>{
-      console.log(data);
-
-    })
+    
+    return this.httpService.post('/createFeedback',data)
+    
   }
 
   deleteFeedback(id: number){
