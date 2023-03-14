@@ -8,42 +8,47 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './create-offers.component.html',
   styleUrls: ['./create-offers.component.css']
 })
+
 export class CreateOffersComponent {
-  
-offerData:any[];
+  constructor(private offerService: OfferService ,
+    private route: ActivatedRoute,
+    private _router: Router){}
 
-constructor(private offerService: OfferService ,
-  private route: ActivatedRoute,
-  private _router: Router){}
+  //Holds all offers
+  offerData:any[];
 
-offerForm: FormGroup;
-discount:FormControl;
-offerDescription: FormControl;
-id: number;
+  //Offer form
+  offerForm: FormGroup;
+  discount:FormControl;
+  offerDescription: FormControl;
 
-ngOnInit(){
-  this.createFormControls();
-  this.createForm();
-  this.id=this.route.snapshot.params["id"];
-}
-createForm() {
-  this.offerForm = new FormGroup({
-    discount:this.discount,
-    offerDescription:this.offerDescription,
-  })
-}
+  //vendor id
+  vendorId: number;
 
-createFormControls() {
-  this.discount = new FormControl('', Validators.required);
-  this.offerDescription = new FormControl('', Validators.required);
-}
+  ngOnInit(){
+    this.createFormControls();
+    this.createForm();
+    this.vendorId=this.route.snapshot.params["vendorId"];
+  }
 
-createOffer(){
-  console.log()
-  this.offerService.createOffer(this.offerForm.value).subscribe((response) => {
-    this._router.navigate(['/vendor-dashboard', this.id]);
-  })
-}
+  createForm() {
+    this.offerForm = new FormGroup({
+      discount:this.discount,
+      offerDescription:this.offerDescription,
+    })
+  }
 
+  createFormControls() {
+    this.discount = new FormControl('', Validators.required);
+    this.offerDescription = new FormControl('', Validators.required);
+  }
+
+  //Submit offer
+  createOffer(){
+    console.log()
+    this.offerService.createOffer(this.offerForm.value).subscribe((response) => {
+      this._router.navigate(['/vendor-dashboard', this.vendorId]);
+    })
+  }
 
 }

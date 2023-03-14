@@ -1,33 +1,47 @@
 <div class="container">
+    <!--Title for Page-->
     <div class="p-4 text-center bg-light fa-4x">
-      <i class="fas fa-user-plus"></i>
-      <h1 class="mb-1">Register as a Vendor</h1>
+        <i class="fas fa-user-plus"></i>
+        <h1 class="mb-1">Register as a Vendor</h1>
     </div>
+
     <br>
-    <form (ngSubmit)="createVendor()" [formGroup]="vendorregisterform">
-      <div class="form-group">
-        <label for="vendorName">Vendor Name</label>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Enter Vendor Name"
-          formControlName="vendorName"
-        />
+
+    <!--Create Vendor Form-->
+    <form (ngSubmit)="createVendor()" [formGroup]="vendorRegisterForm">
+        <div class="form-group">
+            <label for="vendorName">Vendor Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Vendor Name"
+              formControlName="vendorName"
+            />
+
+            <br>
+
+            <label for="userName">Vendor Location</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Vendor Location"
+              formControlName="vendorLocation"
+            />
+            
+        </div>
+
         <br>
-        <label for="userName">Vendor Location</label>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Enter Vendor Location"
-          formControlName="vendorLocation"
-        />
-      </div>
-      <br>
-        <button class="btn btn-warning" [disabled]="!vendorregisterform.valid">Register as Vendor</button>
-      <br>
-      <br>
+
+        <button class="btn btn-warning" [disabled]="!vendorRegisterForm.valid">Register as Vendor</button>
+        
+        <br>
+        <br>
+
     </form>
-    <br />
+
+    <br>
+
     <div class="footer"></div>
+    
   </div>
   

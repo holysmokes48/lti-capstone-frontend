@@ -6,25 +6,18 @@ import { HttpGeneralService } from '../shared/http-service/httpgeneral.service';
   providedIn: 'root'
 })
 export class UserService {
-  userData: FormData[]=[]
-
-  constructor(private http:HttpClient, private httpService: HttpGeneralService) { 
-
-  }
+  constructor(private http:HttpClient, private httpService: HttpGeneralService) {}
 
   login(data: any) {
-    this.userData.push(data);
-    return this.httpService.post('/login',data);
+    return this.httpService.post('/login', data);
   }
 
   register(data: any) {
-    this.userData.push(data);
-    return this.httpService.post('/createUser',data);
+    return this.httpService.post('/createUser', data);
   }
 
   changePassword(data: any) {
-    this.userData.push(data);
-    return this.httpService.put('/updateUser',data);
+    return this.httpService.put('/updateUser', data);
   }
 
   /*

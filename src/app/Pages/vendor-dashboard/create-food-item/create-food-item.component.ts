@@ -10,10 +10,7 @@ import { FoodItemService } from 'src/app/Services/food-item.service';
 })
 export class CreateFoodItemComponent {
   constructor(private fs: FoodItemService, private router: Router, private route: ActivatedRoute){}
-
-  //Holds list of food items
-  fooditemData:any[];
-
+  
   //Food Item Form to create food
   foodItemForm: FormGroup;
   foodName:FormControl;

@@ -7,4 +7,5 @@ import { VendorRegisterComponent } from './vendor-register.component';
     RouterModule.forChild([{ path: '', component: VendorRegisterComponent }]),
   ],
 })
+
 export class VendorRegisterModule {}

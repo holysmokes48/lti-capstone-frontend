@@ -9,6 +9,7 @@ import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  
   //Number of items in Shopping Cart
   ItemCount: number;
   //Whether or not to show Shopping Cart icon

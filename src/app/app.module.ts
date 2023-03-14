@@ -19,7 +19,6 @@ import { EditFoodItemComponent } from './Pages/vendor-dashboard/edit-food-item/e
 import { CreateFoodItemComponent } from './Pages/vendor-dashboard/create-food-item/create-food-item.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { VendorRegisterComponent } from './pages/vendor-register/vendor-register.component';
 import { OfferComponent } from './Pages/shopping-cart/offer/offer.component';
 import { CommonModule, DatePipe } from '@angular/common';

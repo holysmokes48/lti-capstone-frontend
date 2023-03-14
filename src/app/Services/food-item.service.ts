@@ -6,38 +6,32 @@ import { HttpGeneralService } from '../shared/http-service/httpgeneral.service';
   providedIn: 'root'
 })
 export class FoodItemService {
-
-  foodItemData: FormData[]=[]
-
   constructor(private http: HttpClient, private httpService: HttpGeneralService) { }
 
   getAllloadFoodItem(){
-    return this.httpService.get(`/getAllFoodItems`)
+    return this.httpService.get(`/getAllFoodItems`);
   }
 
   createFoodItem(data:any) {
-    
-    this.foodItemData.push(data)
-    return this.httpService.post('/createFoodItems',data)
-    
+    return this.httpService.post('/createFoodItems',data);
   }
 
+  //Gets one Food Item by Food Item id
   getFoodItemById(id: number) {
-    return this.httpService.get(`/getFoodItemById/${id}}`)
+    return this.httpService.get(`/getFoodItemById/${id}}`);
   }
 
   updateFoodItem(data: any) {
-    this.foodItemData.push(data)
-    return this.httpService.put('/updateFoodItem', data)
+    return this.httpService.put('/updateFoodItem', data);
   }
 
   deleteFoodItemById(id: number) {
-    return this.httpService.delete(`/deleteFoodItemById/${id}`)
+    return this.httpService.delete(`/deleteFoodItemById/${id}`);
   }
   
-  //returns by a list
+  //Gets Food Item List by Vendor Id
   getFoodByVendorId(id: number) {
-    return this.httpService.get(`/findFood/${id}`)
+    return this.httpService.get(`/findFood/${id}`);
   }
 
   /*

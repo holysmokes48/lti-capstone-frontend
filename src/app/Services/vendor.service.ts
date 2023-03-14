@@ -8,33 +8,31 @@ import { HttpGeneralService } from '../shared/http-service/httpgeneral.service';
 export class VendorService {
   constructor(private http: HttpClient, private httpService: HttpGeneralService) {}
 
-  offerData: FormData[] = [];
-
   getAllVendors() {
     return this.httpService.get('/getAllVendors');
   }
 
   createVendor(data: any) {
-    this.offerData.push(data);
     return this.httpService.post('/createVendor', data);
   }
 
+  //Get Vendor by the Vendor Id
   getVendorById(id: number) {
     return this.httpService.get(`/getVendorById/${id}`);
   }
+
+  //Get Vendor by the User Id
   getVendorByUserId(id: number) {
     return this.httpService.get(`/getVendorByUserId/${id}`);
   }
 
   updateVendor(data: any) {
-    this.offerData.push(data);
-    this.httpService.put('/updateVendor', data).subscribe((data) => {
-      console.log(data);
-    });
+    return this.httpService.put('/updateVendor', data);
   }
 
+  //Delete Vendor by Vendor Id
   deleteVendorbyId(id: number) {
-    console.log(id)
+    console.log(id);
     return this.httpService.delete(`/deleteVendorById/${id}`);
   }
 

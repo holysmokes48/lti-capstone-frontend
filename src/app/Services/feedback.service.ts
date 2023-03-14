@@ -6,17 +6,13 @@ import { HttpGeneralService } from '../shared/http-service/httpgeneral.service';
   providedIn: 'root'
 })
 export class FeedbackService {
-
   constructor(private http:HttpClient, private httpService: HttpGeneralService) { }
-
-  feedbackData: FormData[]=[]
 
   getAllFeedback(){
     return this.httpService.get('/getAllFeedbacks');
   }
 
   createFeedback(data:any){
-    this.feedbackData.push(data);
     return this.httpService.post('/createFeedback',data);
   }
 

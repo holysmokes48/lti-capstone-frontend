@@ -9,24 +9,27 @@ import { VendorService } from 'src/app/Services/vendor.service';
   styleUrls: ['./vendor-register.component.css']
 })
 export class VendorRegisterComponent {
-  constructor(private route: ActivatedRoute, private vs: VendorService, private _router: Router) {
-
-  }
+  constructor(private route: ActivatedRoute, private vs: VendorService, private _router: Router) {}
   
+  //Object passed into create vendor
   vendor: any;
-  id: number;
-  vendorregisterform: FormGroup;
+
+  //User Id for this Vendor
+  userId: number;
+
+  //Vendor Registration Form
+  vendorRegisterForm: FormGroup;
   vendorName: FormControl;
   vendorLocation: FormControl;
 
   ngOnInit() {
     this.createFormControls();
     this.createForm();
-    this.id=this.route.snapshot.params["id"];
+    this.userId=this.route.snapshot.params["userId"];
   }
 
   createForm() {
-    this.vendorregisterform= new FormGroup({
+    this.vendorRegisterForm= new FormGroup({
       vendorName: this.vendorName,
       vendorLocation: this.vendorLocation,
     });
@@ -37,11 +40,14 @@ export class VendorRegisterComponent {
     this.vendorLocation = new FormControl('', Validators.required);
   }
 
+  //Create Vendor and insert into database, then route to login page
   createVendor() {
-    this.vendor = this.vendorregisterform.value;
-    this.vendor.userId = this.id;
+    //Add user id as a field for Vendor
+    this.vendor = this.vendorRegisterForm.value;
+    this.vendor.userId = this.userId;
     this.vs.createVendor(this.vendor).subscribe((response) => {
       this._router.navigate(['/login']);
     });
   }
+
 }

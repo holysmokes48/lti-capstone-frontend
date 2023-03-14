@@ -56,10 +56,14 @@
 
         <!--Submit food item or cancel-->
         <div>
-          <br>
-          <button type="submit" class="btn btn-success" [disabled]="!foodItemForm.valid">Submit</button>
-          <button [routerLink]="['/vendor-dashboard', vendorId]" class="btn btn-danger">Cancel</button>
-          <br>
+
+            <br>
+
+            <button type="submit" class="btn btn-success" [disabled]="!foodItemForm.valid">Submit</button>
+            <button [routerLink]="['/vendor-dashboard', vendorId]" class="btn btn-danger">Cancel</button>
+
+            <br>
+            
         </div>
 
         <hr/>

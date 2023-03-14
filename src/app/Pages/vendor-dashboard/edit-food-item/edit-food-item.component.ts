@@ -10,17 +10,22 @@ import { FoodItemService } from 'src/app/Services/food-item.service';
   styleUrls: ['./edit-food-item.component.css']
 })
 export class EditFoodItemComponent { 
-  fooditemData:any[];
+  constructor(private fs: FoodItemService, private route: ActivatedRoute, private router: Router) {}
 
-  constructor(private fs: FoodItemService, private route: ActivatedRoute, private router: Router){}
-
-  editfoodItemForm: FormGroup;
-  fooditem: any;
-  foodId: number;
-  vendorId: number;
+  //Edit Food Item Form Information
+  editFoodItemForm: FormGroup;
   foodName:FormControl;
   price: FormControl;
   description: FormControl;
+
+  //Food Item object holding all information to update Food Item in database
+  foodItem: any;
+
+  //Food Item Id
+  foodId: number;
+
+  //Vendor Id
+  vendorId: number;
 
   ngOnInit(){
     this.createFormControls();
@@ -30,7 +35,7 @@ export class EditFoodItemComponent {
   }
 
   createForm() {
-    this.editfoodItemForm = new FormGroup({
+    this.editFoodItemForm = new FormGroup({
       foodName:this.foodName,
       price:this.price,
       description:this.description,
@@ -43,16 +48,16 @@ export class EditFoodItemComponent {
     this.description = new FormControl('', Validators.required);
   }
 
-
+  //Update Food Item in database then return to vendor dashboard
   updateFoodItem(){
-    console.log()
-    this.fooditem = this.editfoodItemForm.value;
-    this.fooditem.foodId = this.foodId;
-    this.fooditem.vendorId = this.vendorId;
-    this.fs.updateFoodItem(this.fooditem).subscribe((response) => {
+    this.foodItem = this.editFoodItemForm.value;
+    this.foodItem.foodId = this.foodId;
+    this.foodItem.vendorId = this.vendorId;
+    this.fs.updateFoodItem(this.foodItem).subscribe((response) => {
       this.router.navigate(['/vendor-dashboard', this.vendorId])
     }); 
   }
+
 }
 
 
