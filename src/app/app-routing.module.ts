@@ -16,7 +16,7 @@ const routes: Routes = [
       import('./Pages/admin-dashboard/admin.module').then((m) => m.AdminModule),
   },
   {
-    path: 'create-food-item/:id',
+    path: 'create-food-item/:vendorId',
     loadChildren: () =>
       import('./Pages/vendor-dashboard/create-food-item/create-food-item.module').then(
         (m) => m.CreateFoodItemModule
@@ -35,7 +35,7 @@ const routes: Routes = [
       import('./Pages/feedback/feedback.module').then((m) => m.FeedbackModule),
   },
   {
-    path: 'food-menu/:id',
+    path: 'food-menu/:vendorId',
     loadChildren: () =>
       import('./Pages/food-menu/food-menu.module').then(
         (m) => m.FoodMenuModule
@@ -54,7 +54,7 @@ const routes: Routes = [
       import('./Pages/login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: 'order-confirmation/:id/:discount',
+    path: 'order-confirmation/:vendorId/:discount',
     loadChildren: () =>
       import('./Pages/order-confirmation/order-confirmation.module').then(
         (m) => m.OrderConfirmationModule
@@ -71,7 +71,7 @@ const routes: Routes = [
       import('./Pages/vendor-register/vendor-register.module').then((m) => m.VendorRegisterModule),
   },
   {
-    path: 'shopping-cart/:id',
+    path: 'shopping-cart/:vendorId',
     loadChildren: () =>
       import('./Pages/shopping-cart/shopping-cart.module').then(
         (m) => m.ShoppingCartModule

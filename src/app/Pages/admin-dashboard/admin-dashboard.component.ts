@@ -9,12 +9,13 @@ import { VendorService } from 'src/app/Services/vendor.service';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent {
-  //Feedback from users
-  feedbackData: any[];
-  //Information of all Vendors
-  vendorData: any[];
+  constructor(private fs: FeedbackService, private vs: VendorService, private _router: Router) {}
 
-  constructor(private fs: FeedbackService, private vs: VendorService, private _router: Router) { }
+    //Feedback from users
+    feedbackData: any[];
+
+    //Information of all Vendors
+    vendorData: any[];
 
   ngOnInit() { 
     this.loadVendors()
@@ -60,4 +61,5 @@ export class AdminDashboardComponent {
   }
 
 }
+
 

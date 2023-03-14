@@ -52,7 +52,7 @@
             </button>
           </a>
 
-          <a [routerLink]="['/shopping-cart', id]" *ngIf="isAuthenticated"> 
+          <a [routerLink]="['/shopping-cart', id]" *ngIf="isShoppingAuthenticated"> 
             <button type="button" class="btn btn-dark px-3">
               <i class="fas fa-shopping-basket"></i>
               <div style="font-size: 8px;" class="badge bg-danger">{{ItemCount}}</div>

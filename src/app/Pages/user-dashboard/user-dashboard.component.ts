@@ -7,10 +7,9 @@ import { VendorService } from 'src/app/Services/vendor.service';
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent {
-  constructor(private vs: VendorService) {
+  constructor(private vs: VendorService) {}
 
-  }
-
+  //Holds list of Vendors
   vendorList: any[];
 
   ngOnInit() {
@@ -24,6 +23,6 @@ export class UserDashboardComponent {
         locArray.push(data[key]);
       }
       this.vendorList = locArray;
-    })
+    });
   }
 }
