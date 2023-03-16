@@ -15,7 +15,7 @@ export class RegisterComponent {
   user: any;
 
   //Register form
-  registerform: FormGroup;
+  registerForm: FormGroup;
   email: FormControl;
   userName: FormControl;
   password: FormControl;
@@ -29,7 +29,7 @@ export class RegisterComponent {
   }
 
   createForm() {
-    this.registerform= new FormGroup({
+    this.registerForm= new FormGroup({
       email: this.email,
       userName: this.userName,
       password: this.password,
@@ -49,7 +49,7 @@ export class RegisterComponent {
   }
 
   register() {
-    this.us.register(this.registerform.value).subscribe((response) => {
+    this.us.register(this.registerForm.value).subscribe((response) => {
 
       //Hold user information
       this.user = JSON.parse(JSON.stringify(response));

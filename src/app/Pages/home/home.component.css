@@ -5,12 +5,9 @@
   padding: 3%;
 }
 
-.container-img {
-  justify-content: center;
-  width: 100%;
-  padding: 3%;
-  margin-left: 25%;
-  margin-right: 25%;
+a {
+  text-align: center;
+  margin: 5px;
 }
 
 button {

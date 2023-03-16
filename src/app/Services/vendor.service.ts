@@ -17,13 +17,13 @@ export class VendorService {
   }
 
   //Get Vendor by the Vendor Id
-  getVendorById(id: number) {
-    return this.httpService.get(`/getVendorById/${id}`);
+  getVendorById(vendorId: number) {
+    return this.httpService.get(`/getVendorById/${vendorId}`);
   }
 
   //Get Vendor by the User Id
-  getVendorByUserId(id: number) {
-    return this.httpService.get(`/getVendorByUserId/${id}`);
+  getVendorByUserId(userId: number) {
+    return this.httpService.get(`/getVendorByUserId/${userId}`);
   }
 
   updateVendor(data: any) {
@@ -31,40 +31,8 @@ export class VendorService {
   }
 
   //Delete Vendor by Vendor Id
-  deleteVendorbyId(id: number) {
-    console.log(id);
-    return this.httpService.delete(`/deleteVendorById/${id}`);
+  deleteVendorbyId(vendorId: number) {
+    return this.httpService.delete(`/deleteVendorById/${vendorId}`);
   }
 
-  /*
-
-  getAllVendors() {
-    return this.http.get('http://localhost:8055/foodDeliveryAppClient/getAllVendors');
-  }
-
-  createVendor(data: any) {
-    this.offerData.push(data);
-    return this.http.post('http://localhost:7080/foodDeliveryAppClient/createVendor', data);
-  }
-
-  getVendorById(id: number) {
-    return this.http.get(`http://localhost:7080/foodDeliveryAppClient/getVendorById/${id}`);
-  }
-  getVendorByUserId(id: number) {
-    return this.http.get(`http://localhost:7080/foodDeliveryAppClient/getVendorByUserId/${id}`);
-  }
-
-  updateVendor(data: any) {
-    this.offerData.push(data);
-    this.http.put('http://localhost:7080/foodDeliveryAppClient/updateVendor', data).subscribe((data) => {
-      console.log(data);
-    });
-  }
-
-  deleteVendorbyId(id: number) {
-    console.log(id)
-    return this.http.delete(`http://localhost:7080/foodDeliveryAppClient/deleteVendorById/${id}`);
-  }
-
-  */
 }

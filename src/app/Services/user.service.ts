@@ -20,22 +20,4 @@ export class UserService {
     return this.httpService.put('/updateUser', data);
   }
 
-  /*
-
-  login(data: any) {
-    this.userData.push(data);
-    return this.http.post('http://localhost:8055/foodDeliveryAppClient/login',data);
-  }
-
-  register(data: any) {
-    this.userData.push(data);
-    return this.http.post('http://localhost:7080/foodDeliveryAppClient/createUser',data);
-  }
-
-  changePassword(data: any) {
-    this.userData.push(data);
-    return this.http.put('http://localhost:7080/foodDeliveryAppClient/updateUser',data);
-  }
-
-  */
 }

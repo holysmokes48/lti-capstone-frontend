@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -28,10 +27,11 @@ export class EditFoodItemComponent {
   vendorId: number;
 
   ngOnInit(){
-    this.createFormControls();
-    this.createForm();
     this.foodId=this.route.snapshot.params["foodId"];
     this.vendorId=this.route.snapshot.params["vendorId"];
+    this.getFoodItem();
+    this.createFormControls();
+    this.createForm();
   }
 
   createForm() {
@@ -48,12 +48,18 @@ export class EditFoodItemComponent {
     this.description = new FormControl('', Validators.required);
   }
 
+  getFoodItem() {
+    this.fs.getFoodItemById(this.foodId).subscribe((response) => {
+      this.foodItem = JSON.parse(JSON.stringify(response));
+    })
+  }
+
   //Update Food Item in database then return to vendor dashboard
   updateFoodItem(){
-    this.foodItem = this.editFoodItemForm.value;
-    this.foodItem.foodId = this.foodId;
-    this.foodItem.vendorId = this.vendorId;
-    this.fs.updateFoodItem(this.foodItem).subscribe((response) => {
+    this.editFoodItemForm.value.foodId = this.foodId;
+    this.editFoodItemForm.value.vendorId = this.vendorId;
+    console.log("here")
+    this.fs.updateFoodItem(this.editFoodItemForm.value).subscribe((response) => {
       this.router.navigate(['/vendor-dashboard', this.vendorId])
     }); 
   }

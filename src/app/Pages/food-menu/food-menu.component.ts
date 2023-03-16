@@ -15,7 +15,7 @@ export class FoodMenuComponent {
   vendorId: number;
 
   //Holds information for food items
-  fooditem: any;
+  foodItemList: any;
 
   //Holds information of the vendor
   vendorInfo: any;
@@ -58,7 +58,7 @@ export class FoodMenuComponent {
       for(let key in data){
         locArray.push(data[key]);
       }
-      this.fooditem = locArray;
+      this.foodItemList = locArray;
     });
   }
 

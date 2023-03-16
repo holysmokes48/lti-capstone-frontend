@@ -22,7 +22,7 @@ export class LoginComponent {
   vendor: any;
 
   //Login Form
-  loginform: FormGroup;
+  loginForm: FormGroup;
   userName: FormControl;
   password: FormControl;
 
@@ -32,7 +32,7 @@ export class LoginComponent {
   }
 
   createForm() {
-    this.loginform= new FormGroup({
+    this.loginForm= new FormGroup({
       userName: this.userName,
       password: this.password,
     });
@@ -44,7 +44,7 @@ export class LoginComponent {
   }
 
   login() {
-    this.us.login(this.loginform.value).subscribe((response) => {
+    this.us.login(this.loginForm.value).subscribe((response) => {
 
       //Get login response
       this.userData = JSON.parse(JSON.stringify(response));

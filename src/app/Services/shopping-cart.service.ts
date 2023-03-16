@@ -10,7 +10,7 @@ export class ShoppingCartService {
   constructor(private http: HttpClient, private fis: FoodItemService) {}
 
   //Actual cart
-  cartItemList =[];
+  cartItemList = [];
 
   //Behavior Subject for immediate update
   productList = new BehaviorSubject<any>([]);
@@ -58,10 +58,11 @@ export class ShoppingCartService {
       }
       return false;
     });
-
   }
+
   removeAllCart() {
     this.cartItemList = [];
     this.productList.next(this.cartItemList);
   }
+
 }

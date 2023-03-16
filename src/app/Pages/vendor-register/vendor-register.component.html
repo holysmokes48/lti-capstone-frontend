@@ -1,11 +1,9 @@
 <div class="container">
     <!--Title for Page-->
-    <div class="p-4 text-center bg-light fa-4x">
+    <div class="p-2 text-center bg-light fa-3x">
         <i class="fas fa-user-plus"></i>
         <h1 class="mb-1">Register as a Vendor</h1>
     </div>
-
-    <br>
 
     <!--Create Vendor Form-->
     <form (ngSubmit)="createVendor()" [formGroup]="vendorRegisterForm">
@@ -18,8 +16,6 @@
               formControlName="vendorName"
             />
 
-            <br>
-
             <label for="userName">Vendor Location</label>
             <input
               type="text"
@@ -27,21 +23,15 @@
               placeholder="Enter Vendor Location"
               formControlName="vendorLocation"
             />
-            
-        </div>
 
-        <br>
+          <br>
 
-        <button class="btn btn-warning" [disabled]="!vendorRegisterForm.valid">Register as Vendor</button>
+          <button class="btn btn-warning btn-lg d-flex justify-content-center" [disabled]="!vendorRegisterForm.valid">Register as Vendor</button>
         
-        <br>
-        <br>
-
+        </div>
     </form>
 
     <br>
-
-    <div class="footer"></div>
     
   </div>
   

@@ -9,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./edit-offers.component.css']
 })
 export class EditOffersComponent {
+  constructor(private route: ActivatedRoute, private os: OfferService, private router: Router) {}
 
   //Offer Id
   offerId: number;
@@ -21,13 +22,15 @@ export class EditOffersComponent {
   discount: FormControl;
   offerDescription: FormControl;
 
-  constructor(private route: ActivatedRoute, private os: OfferService, private router: Router) {}
+  //Holds initial data for offer
+  offerData: any;
   
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       this.offerId=this.route.snapshot.params["offerId"];
       this.vendorId=this.route.snapshot.params["vendorId"];
     });
+    this.getOffer();
     this.createFormControls();
     this.createForm();
   }
@@ -42,6 +45,12 @@ export class EditOffersComponent {
   createFormControls() {
     this.discount = new FormControl('', Validators.required);
     this.offerDescription = new FormControl('', Validators.required);
+  }
+
+  getOffer() {
+    this.os.getOfferById(this.offerId).subscribe((response) => {
+      this.offerData = response;
+    })
   }
 
   //Update offer Information

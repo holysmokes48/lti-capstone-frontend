@@ -2,7 +2,7 @@
 <header>
     <div class="p-3 text-center bg-light">
         <h1 class="mb-1">{{ vendorInfo.vendorName }} Menu</h1>
-        <h4>Location: {{ vendorInfo.vendorLocation }}</h4>
+        <h4>{{ vendorInfo.vendorLocation }}</h4>
     </div>
 </header>
 
@@ -22,7 +22,7 @@
         </thead>
 
         <tbody>
-            <tr *ngFor="let food of fooditem; let i = index">
+            <tr *ngFor="let food of foodItemList; let i = index">
                 <!--Food Icon-->
                 <td style="text-align: center">
                     <img
@@ -49,21 +49,25 @@
 
     </table>
 
-</div>
-
-<br>
-
-<!--Navigation buttons back to user dashboard and towards shopping cart-->
-<div class="d-flex justify-content-center">
-    <a routerLink="/user-dashboard">
-        <button class="btn btn-warning">Back to Dashboard</button>
-    </a>
-    <!--Only show if user's cart has item(s) from current vendor food menu page-->
-    <a [routerLink]="['/shopping-cart', vendorId]" *ngIf="isOrderAuthenticated">
-        <button class="btn btn-primary">Go to Cart</button>
-    </a>
     <br>
-    <br>
+
+    <!--Navigation buttons back to user dashboard and towards shopping cart-->
+    <div class="d-flex justify-content-center">
+        <a [routerLink]="['/user-dashboard']">
+            <button class="btn btn-warning">Back to Dashboard</button>
+        </a>
+        
+        <!--Only show if user's cart has item(s) from current vendor food menu page-->
+        <a [routerLink]="['/shopping-cart', vendorId]" *ngIf="isOrderAuthenticated">
+            <button class="btn btn-primary">Go to Cart</button>
+        </a>
+
+        <br>
+        <br>
+        <br>
+
+    </div>
+
 </div>
 
 <!-- 

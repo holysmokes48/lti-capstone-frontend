@@ -54,7 +54,7 @@ export class AdminDashboardComponent {
 
   //Delete Feedbacks and reload
   onDeleteFeedback(feedback) {
-    this.fs.deleteFeedback(feedback.feedbackId).subscribe(response=>{
+    this.fs.deleteFeedbackById(feedback.feedbackId).subscribe(response=>{
       console.log(response)
       this.loadFeedbacks()
     });

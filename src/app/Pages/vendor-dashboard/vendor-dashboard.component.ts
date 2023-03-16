@@ -10,7 +10,9 @@ import { VendorService } from 'src/app/Services/vendor.service';
   styleUrls: ['./vendor-dashboard.component.css']
 })
 export class VendorDashboardComponent {
-  
+  constructor(private foodService: FoodItemService, private offerservice:OfferService,private route: ActivatedRoute,
+    private vendorService: VendorService) {}
+
   //Holds all Offer data
   offerData:any[];
 
@@ -22,9 +24,6 @@ export class VendorDashboardComponent {
 
   //Holds the Vendor Information
   vendorInfo: any;
-
-  constructor(private foodService: FoodItemService, private offerservice:OfferService,private route: ActivatedRoute,
-    private vendorService: VendorService) {}
 
   ngOnInit(){ 
     this.route.params.subscribe((params: Params) => {
@@ -71,7 +70,7 @@ export class VendorDashboardComponent {
 
   //Delete an offer from the shared offers list
   deleteOffer(offer:any){
-    this.offerservice.deleteOffer(offer.offerId).subscribe((response) => {
+    this.offerservice.deleteOfferById(offer.offerId).subscribe((response) => {
       console.log(response)
       this.loadOffers()
     });

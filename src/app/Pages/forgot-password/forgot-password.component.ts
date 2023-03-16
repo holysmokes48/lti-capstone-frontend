@@ -12,7 +12,7 @@ export class ForgotPasswordComponent {
   constructor(private us: UserService, private _router: Router) {}
 
    //Forgot password form
-   forgotpassform: FormGroup;
+   forgotPassForm: FormGroup;
    email:FormControl;
    userName: FormControl;
    securityQuestion: FormControl;
@@ -25,7 +25,7 @@ export class ForgotPasswordComponent {
   }
 
   createForm() {
-    this.forgotpassform = new FormGroup({
+    this.forgotPassForm = new FormGroup({
       email: this.email,
       userName: this.userName,
       securityQuestion: this.securityQuestion,
@@ -44,8 +44,8 @@ export class ForgotPasswordComponent {
 
   //Change password and update in database
   changePassword() {
-    console.log(this.forgotpassform.value);
-    this.us.changePassword(this.forgotpassform.value).subscribe((response) => {
+    console.log(this.forgotPassForm.value);
+    this.us.changePassword(this.forgotPassForm.value).subscribe((response) => {
       this._router.navigate(['/login']);
     });
   }

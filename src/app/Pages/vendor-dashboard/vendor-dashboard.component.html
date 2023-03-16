@@ -1,12 +1,16 @@
 <!--Vendor information for page-->
 <header>
-  <div class="p-5 text-center bg-light">
-    <h1 class="mb-3"> {{vendorInfo.vendorName}} </h1>
-    <h3>Location: {{vendorInfo.vendorLocation}}</h3>
+  <div class="p-2 text-center bg-light fa-3x">
+    <h1 class="mb-1">{{vendorInfo.vendorName}} Menu</h1>
+    <h4>{{vendorInfo.vendorLocation}}</h4>
   </div>
 </header>
 
+<br>
+
 <!--Food Item Table-->
+<h3 class="mb-3 text-center">Available Items</h3>
+
 <div class="container">
     <div class="food-table">
         <div class="food-items">
@@ -42,6 +46,8 @@
     </div>
 </div>
 
+<br>
+
 <!--Navigation to Create Food Item Page-->
 <div class="text-center">
     <a [routerLink]="['/create-food-item', vendorId]">
@@ -51,16 +57,14 @@
 
 <br>
 <br>
+<hr/>
+<br>
 
 <!--Header for Offers -->
-<header>
-  <div class="p-1 text-center bg-light">
-      <h1 class="mb-1">Offers</h1>
-  </div>
-</header>
+<h3 class="mb-3 text-center">Offers</h3>
 
 <!--Table for Offers-->
-<div class="container">
+<div class="container d-flex justify-content-center">
     <div class="offer-table">
         <div class="offer-items">
             <table class="table table-responsive">
@@ -79,7 +83,7 @@
                       <td style="text-align: center">{{offer.discount}}</td>
                       <td style="text-align: center">{{offer.offerDescription}}</td>
                       <td style="text-align: center">
-                          <button [routerLink]= "['/edit-offers', offer.offerId, id]" type="button" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
+                          <button [routerLink]= "['/edit-offers', offer.offerId, vendorId]" type="button" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
                           <button (click)="deleteOffer(offer)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                       </td>
                     </tr>
@@ -89,104 +93,14 @@
     </div>
 </div>
 
+<br>
+
 <!--Route the Vendor to the Create Offers Page-->
 <div class = "text-center">
   <a [routerLink]="['/create-offers', vendorId]">
       <button class="btn btn-success">Create Offer</button>
   </a>
 </div>
-<br><br>
 
-<!--
-
-<header>
-  <div class="p-5 text-center bg-light">
-    <h1 class="mb-3"> {{vendorInfo.vendorName}} </h1>
-    <h3>Location: {{vendorInfo.vendorLocation}}</h3>
-  </div>
-</header>
-
-<div class="container">
-  <div class="food-table">
-    <div class="food-items">
-      <table class="table table-responsive">
-        <thead>
-          <tr>
-            <th>Food ID</th>
-            <th>Food Name</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let foodItem of foodItemData;let i= index">
-              <th scope = "row">{{i+1}}</th>
-              <td>{{foodItem.foodName}}</td>
-              <td>{{foodItem.price}}</td>
-              <td>{{foodItem.description}}</td>
-              <td>
-                <button [routerLink]="['/edit-food-item', foodItem.foodId, foodItem.vendorId]" class="btn btn-primary" >Edit Food</button>
-            </td>
-              <td>
-                <button (click)="deleteFoodItem(foodItem)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-              </td>
-            </tr>
-          </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class="text-center">
-  <a [routerLink]="['/create-food-item', id]">
-    <button class="btn btn-success">Create Food Item</button>
-  </a>
-</div>
 <br>
 <br>
-
-<header>
-<div class="p-1 text-center bg-light">
-  <h1 class="mb-1"> Discounts</h1>
-</div>
-</header>
-
-<div class="container">
-  <div class="offer-table">
-    <div class="offer-items">
-      <table class="table table-responsive">
-        <thead>
-          <tr>
-            <th>Discount</th>
-            <th>Offer Description</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let offer of offerData; let i= index">
-              <td>{{offer.discount}}</td>
-              <td>{{offer.offerDescription}}</td>
-              <td>
-                <button [routerLink]= "['/edit-offers', offer.offerId, id]" type="button" class="btn btn-primary">Edit Offer</button>
-              </td>
-              <td>
-                <button (click)="deleteOffer(offer)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-              </td>
-            </tr>
-          </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class = "text-center">
-<a [routerLink]="['/create-offers', id]">
-  <button class="btn btn-success">Create Offer</button>
-</a>
-</div>
-<br><br>
-
--->

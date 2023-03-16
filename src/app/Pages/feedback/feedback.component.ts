@@ -18,7 +18,7 @@ export class FeedbackComponent {
   feedbackData: any[];
 
   //Form for submitting feedback
-  feedbackform: FormGroup;
+  feedbackForm: FormGroup;
 
   //rating input
   rating: FormControl;
@@ -38,7 +38,7 @@ export class FeedbackComponent {
   }
 
   createForm() {
-    this.feedbackform = new FormGroup({
+    this.feedbackForm = new FormGroup({
       rating: this.rating,
       description: this.description,
     })
@@ -51,7 +51,7 @@ export class FeedbackComponent {
 
   //Submit a feedback
   createFeedback(){
-    this.fs.createFeedback(this.feedbackform.value).subscribe((response) => {
+    this.fs.createFeedback(this.feedbackForm.value).subscribe((response) => {
       this.as.authenticate(true);
       this.router.navigate(['/user-dashboard']);
     });

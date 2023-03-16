@@ -16,24 +16,8 @@ export class FeedbackService {
     return this.httpService.post('/createFeedback',data);
   }
 
-  deleteFeedback(id: number){
-    return this.httpService.delete(`/deleteFeedbackById/${id}`);
+  deleteFeedbackById(feedbackId: number){
+    return this.httpService.delete(`/deleteFeedbackById/${feedbackId}`);
   }
 
-  /*
-
-  getAllFeedback(){
-    return this.http.get('http://localhost:8055/foodDeliveryAppClient/getAllFeedbacks')
-  }
-
-  createFeedback(data:any){
-    this.feedbackData.push(data)
-    this.http.post('http://localhost:7080/foodDeliveryAppClient/createFeedback',data)
-    .subscribe((data) =>{
-      console.log(data);
-
-    })
-  }
-
-  */
 }
