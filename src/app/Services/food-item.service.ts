@@ -6,77 +6,33 @@ import { HttpGeneralService } from '../shared/http-service/httpgeneral.service';
   providedIn: 'root'
 })
 export class FoodItemService {
-
-  foodItemData: FormData[]=[]
-
   constructor(private http: HttpClient, private httpService: HttpGeneralService) { }
 
   getAllloadFoodItem(){
-    return this.httpService.get(`/getAllFoodItems`)
+    return this.httpService.get(`/getAllFoodItems`);
   }
 
   createFoodItem(data:any) {
-    
-    this.foodItemData.push(data)
-    return this.httpService.post('/createFoodItems',data)
-    
+    return this.httpService.post('/createFoodItems',data);
   }
 
-  getFoodItemById(id: number) {
-    return this.httpService.get(`/getFoodItemById/${id}}`)
+  //Gets one Food Item by Food Item id
+  getFoodItemById(foodItemId: number) {
+    console.log(foodItemId);
+    return this.httpService.get(`/getFoodItemById/${foodItemId}`);
   }
 
   updateFoodItem(data: any) {
-    this.foodItemData.push(data)
-    return this.httpService.put('/updateFoodItem', data)
+    return this.httpService.put('/updateFoodItem', data);
   }
 
-  deleteFoodItemById(id: number) {
-    return this.httpService.delete(`/deleteFoodItemById/${id}`)
+  deleteFoodItemById(foodItemId: number) {
+    return this.httpService.delete(`/deleteFoodItemById/${foodItemId}`);
   }
   
-  //returns by a list
-  getFoodByVendorId(id: number) {
-    return this.httpService.get(`/findFood/${id}`)
+  //Gets Food Item List by Vendor Id
+  getFoodByVendorId(vendorId: number) {
+    return this.httpService.get(`/findFood/${vendorId}`);
   }
-
-  /*
-
-  getAllloadFoodItem(){
-    return this.http.get(`http://localhost:7080/foodDeliveryAppClient/getAllFoodItems`)
-    
-  }
-
-  createFoodItem(data:any) {
-    
-    this.foodItemData.push(data)
-    this.http.post('http://localhost:7080/foodDeliveryAppClient/createFoodItem',data)
-    .subscribe((data) =>{
-      console.log(data);
-
-    })
-    
-  }
-  getFoodItemById(id: number) {
-    return this.http.get(`http://localhost:7080/foodDeliveryAppClient/getFoodItemById/${id}}`)
-  }
-  updateFoodItem(data: any) {
-    this.foodItemData.push(data)
-    this.http.put('http://localhost:7080/foodDeliveryAppClient/updateFoodItem', data)
-    .subscribe((data) =>{
-      console.log(data);
-    })
-  }
-  deleteFoodItemById(id: number) {
-    return this.http.delete(`http://localhost:7080/foodDeliveryAppClient/deleteFoodItemById/${id}`)
-  }
-  //returns by a list
-  getFoodByVendorId(id: number) {
-    return this.http.get(`http://localhost:7080/foodDeliveryAppClient/findfood/${id}`)
-  }
-
-  */
-
+  
 }
-
-

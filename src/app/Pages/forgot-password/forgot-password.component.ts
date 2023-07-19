@@ -9,16 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent {
-  forgotpassform: FormGroup;
-  email:FormControl;
-  userName: FormControl;
-  securityQuestion: FormControl;
-  answer: FormControl;
-  password: FormControl;
+  constructor(private us: UserService, private _router: Router) {}
 
-  constructor(private us: UserService, private _router: Router) {
-
-  }
+   //Forgot password form
+   forgotPassForm: FormGroup;
+   email:FormControl;
+   userName: FormControl;
+   securityQuestion: FormControl;
+   answer: FormControl;
+   password: FormControl;
 
   ngOnInit() {
     this.createFormControls();
@@ -26,7 +25,7 @@ export class ForgotPasswordComponent {
   }
 
   createForm() {
-    this.forgotpassform = new FormGroup({
+    this.forgotPassForm = new FormGroup({
       email: this.email,
       userName: this.userName,
       securityQuestion: this.securityQuestion,
@@ -43,9 +42,10 @@ export class ForgotPasswordComponent {
     this.password = new FormControl('', [Validators.required, Validators.minLength(6)])
   }
 
+  //Change password and update in database
   changePassword() {
-    console.log(this.forgotpassform.value);
-    this.us.changePassword(this.forgotpassform.value).subscribe((response) => {
+    console.log(this.forgotPassForm.value);
+    this.us.changePassword(this.forgotPassForm.value).subscribe((response) => {
       this._router.navigate(['/login']);
     });
   }

@@ -11,14 +11,18 @@ import { VendorService } from 'src/app/Services/vendor.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  constructor(private us: UserService, private vs: VendorService, 
+    private as: AuthService, private _router: Router) {}
+  
+  //Holds user response to use necessary data to reroute user to the right dashboard based on user information
+  //including the user type
   userData: any;
+
+  //Holds vendor infomration if user type is a vendor
   vendor: any;
 
-  constructor(private us: UserService, private vs: VendorService, private as: AuthService, private _router: Router) {
-
-  }
-  
-  loginform: FormGroup;
+  //Login Form
+  loginForm: FormGroup;
   userName: FormControl;
   password: FormControl;
 
@@ -28,7 +32,7 @@ export class LoginComponent {
   }
 
   createForm() {
-    this.loginform= new FormGroup({
+    this.loginForm= new FormGroup({
       userName: this.userName,
       password: this.password,
     });
@@ -40,8 +44,12 @@ export class LoginComponent {
   }
 
   login() {
-    this.us.login(this.loginform.value).subscribe((response) => {
+    this.us.login(this.loginForm.value).subscribe((response) => {
+
+      //Get login response
       this.userData = JSON.parse(JSON.stringify(response));
+
+      //Route to appropriate dashboard based on user type
       if(this.userData['type'].match(/^User$/)) {
         this._router.navigate(['/user-dashboard']);
         this.as.authenticate(true);
@@ -51,10 +59,15 @@ export class LoginComponent {
       }
       else {
         this.vs.getVendorByUserId(this.userData['userId']).subscribe((response) => {
+
+          //Get vendor information
           this.vendor = JSON.parse(JSON.stringify(response));
+
+          //Route to the right vendor dashboard
           this._router.navigate(['/vendor-dashboard', this.vendor['vendorId']]);
         });
       }
     });
   }
+  
 }

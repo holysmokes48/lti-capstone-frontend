@@ -11,81 +11,82 @@ import { VendorService } from 'src/app/Services/vendor.service';
 })
 export class ShoppingCartComponent {
 
-  public product: any = [];
-  public grandTotal!: number; 
-  id: number;
+  //Holds the list of items in a users shopping cart
+  productList: any[];
+  subTotal: number; 
+  vendorId: number;
   offers: any = [];
   discount= {discount: 0};
-  isAuthenticated = true;
+  isShoppingAuthenticated = true;
   vendorData: any;
-  empty: boolean;
 
   constructor(private vs: VendorService, private _router: Router, private os: OfferService, private cs: ShoppingCartService, 
-    private route: ActivatedRoute
-  ) {
-  }
+    private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.loadProducts();
-    this.loadOffers();
-    this.id=this.route.snapshot.params["id"];
-    if(isNaN(this.id)) {
-      this.cs.getProducts().subscribe((response) => {
-        if(response.length == 0) {
-          this.isAuthenticated = false;
-        }
-        else {
-          console.log(response[0]);
-          console.log(response[0].vendorId);
-          this.id = response[0].vendorId;
-        }
+      this.loadProducts();
+      this.loadOffers();
+      this.vendorId=this.route.snapshot.params["vendorId"];
+
+      //Check if vendorId is null, if so, user has clicked shopping cart icon
+      if(isNaN(this.vendorId)) {
+        this.cs.getProducts().subscribe((response) => {
+          //If empty shopping cart, user can return to dashboard only
+          if(response.length == 0) {
+            this.isShoppingAuthenticated = false;
+          }
+          else {
+            //else vendor information is shown along with return to food menu and go to cart buttons
+            this.vendorId = response[0].vendorId;
+          }
+        });
+      }
+
+      //Get Vendor Information
+      this.vs.getVendorById(this.vendorId).subscribe((response) => {
+        this.vendorData = response;
+        console.log(this.vendorData);
       });
     }
-    this.vs.getVendorById(this.id).subscribe((response) => {
-      this.vendorData = response;
-    });
-    this.cs.getProducts().subscribe((response) => {
-      if(response.length == 0) {
-        this.empty = true;
-      }
-      else {
-        this.empty = false;
-      }
-    })
-  }
 
-  loadProducts() {
-    this.cs.getProducts().subscribe((res) => {
-      this.product = res;
-      this.getSubTotal();
-    });
-  }
+    //Get all products
+    loadProducts() {
+      this.cs.getProducts().subscribe((res) => {
+        this.productList = res;
+        this.getSubTotal();
+      });
+    }
 
-  getSubTotal() {
-    this.grandTotal = this.cs.getSubTotal();
-  }
+    //Get the subtotal
+    getSubTotal() {
+      this.subTotal = this.cs.getSubTotal();
+      console.log(this.subTotal);
+    }
 
-  loadOffers() {
-    this.os.getAllOffers().subscribe((res) => {
-      this.offers = res;
-    })
-  }
+    //Get all offers
+    loadOffers() {
+      this.os.getAllOffers().subscribe((res) => {
+        this.offers = res;
+      })
+    }
 
-  removeItem(item: any) {
-    this.cs.removeCartItem(item);
-    this.loadProducts();
-    this.cs.getSubTotal();
-  }
+    //Remove an item from cart and update products and subtotal
+    removeItem(item: any) {
+      this.cs.removeCartItem(item);
+      this.loadProducts();
+      this.cs.getSubTotal();
+    }
 
-  removeAll() {
-    this.cs.removeAllCart();
-    this.loadProducts();
-    this.cs.getSubTotal();
-  }
+    //Remove all items from the cart and update products and subtotal
+    removeAll() {
+      this.cs.removeAllCart();
+      this.loadProducts();
+      this.cs.getSubTotal();
+    }
 
-  confirmOrder() {
-    let myDiscount : number = + this.discount;
-    console.log(this.discount.discount);
-    this._router.navigate(['/order-confirmation', this.id, this.discount.discount]);
-  }
+    //Confirm order and go to order confirmation page
+    confirmOrder() {
+      console.log(this.discount.discount);
+      this._router.navigate(['/order-confirmation', this.vendorId, this.discount.discount]);
+    }
 }

@@ -7,11 +7,13 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class ShoppingCartService {
-
-  public cartItemList =[];
-  public productList = new BehaviorSubject<any>([]);
-
   constructor(private http: HttpClient, private fis: FoodItemService) {}
+
+  //Actual cart
+  cartItemList = [];
+
+  //Behavior Subject for immediate update
+  productList = new BehaviorSubject<any>([]);
   
   getProducts() {
     return this.productList.asObservable();
@@ -23,13 +25,13 @@ export class ShoppingCartService {
   }
 
   addToCart(product: any) {
+    //Check and return whether items in cart are from the same vendor
     if(this.cartItemList.length != 0 && this.cartItemList[0].vendorId != product.vendorId) {
       return false;
     }
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
     return true;
-    //this.getTotalPrice();
   }
 
   getSubTotal() {
@@ -47,8 +49,8 @@ export class ShoppingCartService {
 
   removeCartItem(product: any) {
     this.cartItemList.some((a: any, index: any) => {
-      console.log("product " + product['foodId']);
-      console.log("a " + a.foodId)
+      
+      //Find item in cart and remove it
       if (product.id === a.id) {
         this.cartItemList.splice(index, 1);
         this.productList.next(this.cartItemList);
@@ -56,10 +58,11 @@ export class ShoppingCartService {
       }
       return false;
     });
-
   }
+
   removeAllCart() {
     this.cartItemList = [];
     this.productList.next(this.cartItemList);
   }
+
 }

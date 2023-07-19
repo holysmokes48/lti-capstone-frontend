@@ -9,12 +9,11 @@ import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  
   //Number of items in Shopping Cart
   ItemCount: number;
   //Whether or not to show Shopping Cart icon
-  isAuthenticated: boolean;
-  //Vendor id
-  id: number;
+  isShoppingAuthenticated: boolean;
 
   constructor(private cs: ShoppingCartService, private as: AuthService, private route: ActivatedRoute) {}
   
@@ -26,7 +25,7 @@ export class HeaderComponent {
     
     //Get Shopping Cart Authentication for user type User
     this.as.auth_update.subscribe((response) => {
-      this.isAuthenticated = response;
+      this.isShoppingAuthenticated = response;
     })
   }
 

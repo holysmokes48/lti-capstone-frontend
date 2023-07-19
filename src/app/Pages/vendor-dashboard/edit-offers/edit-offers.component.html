@@ -1,48 +1,43 @@
+<!--Title for page-->
 <header>
-  <div class="p-5 text-center bg-light">
-    <h1 class="mb-3">Edit Offers </h1>
-  </div>
+    <div class="p-2 text-center bg-light">
+        <h1 class="mb-1">Edit Offers </h1>
+    </div>
 </header>
 
-<div>
-  <form (submit)="updateOffer()" [formGroup]= "offerForm">
-  <div class="col-xs-12">
+<div class="form-group">
+    <!--Update Offer Form-->
+    <form (submit)="updateOffer()" [formGroup]= "offerForm">
+        <label for="discount">Discount %</label>
+        <input
+        type="text"
+        formControlName="discount"
+        class="form-control"
+        placeholder={{offerData.discount}}
+        />
 
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="form-group">
-          <label for="discount">Discount %</label>
-          <input
-            type="text"
-            formControlName="discount"
-            class="form-control"
-          />
-        </div>
-      </div>
-    </div>
+        <label for="offerDescription">Description</label>
+        <textarea
+        type="text"
+        class="form-control"
+        formControlName="offerDescription"
+        placeholder={{offerData.offerDescription}}
+        ></textarea>
+          
+        <br>
 
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="form-group">
-          <label for="offerDescription">Description</label>
-          <textarea
-            type="text"
-            class="form-control"
-            formControlName="offerDescription"
-            rows="6"
-          ></textarea>
+        <!--Submit Edit to Offer or cancel and return to Vendor Dashboard-->
+        <div class="d-flex justify-content-center">
+
+            <br>
+
+            <button type="submit" class="btn btn-success" [disabled]="!offerForm.valid">Submit</button>
+            <button [routerLink]="['/vendor-dashboard', vendorId]" class="btn btn-danger">Cancel</button>
+           
+            <br>
+
         </div>
-      </div>
-    </div>
-    
-    <div>
-      <br>
-      <button type="submit" class="btn btn-success">Submit</button>
-      <button [routerLink]="['/vendor-dashboard', vendorId]" class="btn btn-danger">Cancel</button>
-      <br>
-    </div>
-    
-  </div>
-  </form>
-  <hr/>
+          
+    </form>
+    <hr/>
 </div>

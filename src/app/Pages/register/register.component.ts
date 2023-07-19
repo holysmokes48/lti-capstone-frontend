@@ -9,12 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  constructor(private us: UserService, private _router: Router) {
+  constructor(private us: UserService, private _router: Router) {}
 
-  }
-
+  //Holds user information
   user: any;
-  registerform: FormGroup;
+
+  //Register form
+  registerForm: FormGroup;
   email: FormControl;
   userName: FormControl;
   password: FormControl;
@@ -28,7 +29,7 @@ export class RegisterComponent {
   }
 
   createForm() {
-    this.registerform= new FormGroup({
+    this.registerForm= new FormGroup({
       email: this.email,
       userName: this.userName,
       password: this.password,
@@ -48,14 +49,20 @@ export class RegisterComponent {
   }
 
   register() {
-    this.us.register(this.registerform.value).subscribe((response) => {
+    this.us.register(this.registerForm.value).subscribe((response) => {
+
+      //Hold user information
       this.user = JSON.parse(JSON.stringify(response));
+
+      //If type vendor, router to vendor register page, else login page
       if(this.user['type'].match(/^Vendor/)) {
         this._router.navigate(['/vendor-register', this.user.userId]);
       }
       else {
         this._router.navigate(['/login']);
       }
-    })
+
+    });
   }
+
 }

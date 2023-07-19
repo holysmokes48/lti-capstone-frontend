@@ -10,30 +10,29 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./order-confirmation.component.css']
 })
 export class OrderConfirmationComponent {
-
-  vendorData: any;
-  product: any[];
-  grandTotal: any; 
-  id:number;
-  currentDateTime: any;
-  discount:number;
-  subtotal:any;
-
   constructor(private cs: ShoppingCartService,  private vs: VendorService, 
-    private route: ActivatedRoute, private datepipe: DatePipe
-    ) {
-     this.currentDateTime =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm')
-    }
+    private route: ActivatedRoute, private datepipe: DatePipe) {
+
+      //Get the current time
+      this.currentDateTime =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm');
+  }
+
+  //Holds vendor information
+  vendorData: any;
+  grandTotal: any; 
+
+  //Holds vendor which user is ordering from
+  vendorId: number;
+  currentDateTime: any;
+  discount: number;
+  subtotal: number;
 
   ngOnInit(): void {
-    
-    this.cs.getProducts().subscribe((res) => {
-    });
-    this.id=this.route.snapshot.params["id"];
+    this.vendorId=this.route.snapshot.params["vendorId"];
     this.discount=this.route.snapshot.params["discount"];
 
-    //load vendor details on order confirmation page
-    this.vs.getVendorById(this.id).subscribe((res) => {
+    //Load vendor details on order confirmation page
+    this.vs.getVendorById(this.vendorId).subscribe((res) => {
       this.vendorData= res;
     })
 
@@ -41,14 +40,14 @@ export class OrderConfirmationComponent {
     this.getGrandTotal();
   }
 
-  //before offer is applied to order
+  //Before offer is applied to order
   getSubtotal() {
-    //return this.grandTotal
     this.subtotal = this.cs.getSubTotal();
   }
 
-  //after offer is applied to order
+  //After offer is applied to order
   getGrandTotal() {
     this.grandTotal = this.cs.getGrandTotal(this.discount);
   }
+
 }

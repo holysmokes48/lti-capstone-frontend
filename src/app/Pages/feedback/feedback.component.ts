@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
@@ -10,27 +10,35 @@ import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.css']
 })
-export class FeedbackComponent implements OnInit {
-
-  feedbackData: any[];
-
+export class FeedbackComponent {
   constructor(private fs: FeedbackService, private as: AuthService, private cs: ShoppingCartService,
     private router: Router) { }
 
-  feedbackform: FormGroup;
-  rating: FormControl;
-  description: FormControl;
+  //Holds data for all feedbacks
+  feedbackData: any[];
 
+  //Form for submitting feedback
+  feedbackForm: FormGroup;
+
+  //rating input
+  rating: FormControl;
+
+  //description input
+  description: FormControl;
 
   ngOnInit() { 
     this.createFormControls();
     this.createForm();
+
+    //Do not display shopping cart icon
     this.as.authenticate(false);
+
+    //clear the cart
     this.cs.removeAllCart();
   }
 
   createForm() {
-    this.feedbackform = new FormGroup({
+    this.feedbackForm = new FormGroup({
       rating: this.rating,
       description: this.description,
     })
@@ -41,13 +49,15 @@ export class FeedbackComponent implements OnInit {
     this.description = new FormControl('', Validators.required);
   }
 
+  //Submit a feedback
   createFeedback(){
-    this.fs.createFeedback(this.feedbackform.value).subscribe((response) => {
+    this.fs.createFeedback(this.feedbackForm.value).subscribe((response) => {
       this.as.authenticate(true);
       this.router.navigate(['/user-dashboard']);
     });
   }
 
+  //Get all feedbacks
   loadFeedbacks() {
     this.fs.getAllFeedback().subscribe((data) => {
       const locArray = [];
@@ -57,4 +67,5 @@ export class FeedbackComponent implements OnInit {
       this.feedbackData = locArray;
     });
   }
+  
 }
